@@ -1,116 +1,160 @@
 "use client";
 import React from "react";
 import HeroScene from "@/components/scene/HeroScene";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import GlitchText from "@/components/ui/GlitchText";
-import MagneticButton from "@/components/ui/MagneticButton";
+import { motion, Variants } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import TypewriterText from "@/components/ui/TypewriterText";
 
+// Re-using simplified Magnetic Button logic inline or keeping component ref if it exists.
+// Assuming MagneticButton exists as per previous file view.
+import MagneticButton from "@/components/ui/MagneticButton";
+
+const variants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "circOut" } }
+};
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15,
+            delayChildren: 0.5
+        }
+    }
+};
+
 export default function Hero() {
+    const [heroData, setHeroData] = React.useState({
+        role: "System Architect",
+        headlineHighlight: "Architecting",
+        headlineMain: "Intelligence",
+        subheadlineStart: "Solving complex problems with",
+        subheadlineHighlight1: "Deep Learning",
+        subheadlineHighlight2: "Autonomous Systems",
+        ctaProject: "Explore Projects",
+        ctaContact: "Contact Me"
+    });
+
+    const [profile, setProfile] = React.useState({ avatar: "/profilee.png" });
+
+    React.useEffect(() => {
+        // Fetch Content
+        fetch('/api/content/hero')
+            .then(res => res.json())
+            .then(data => {
+                if (data && !data.error) setHeroData(data);
+            })
+            .catch(err => console.error("Failed to fetch hero content", err));
+
+        // Fetch Profile for Avatar
+        fetch('/api/content/profile')
+            .then(res => res.json())
+            .then(data => {
+                if (data && !data.error && data.avatar) setProfile(prev => ({ ...prev, avatar: data.avatar }));
+            })
+            .catch(err => console.error("Failed to fetch profile", err));
+    }, []);
+
     return (
-        <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black text-white pointer-events-auto">
-            {/* 3D Background */}
-            <div className="absolute inset-0 z-0 select-none pointer-events-none">
+        <section className="relative w-full h-screen overflow-hidden bg-[var(--color-bg-primary)]">
+
+            {/* 3D Background Layer */}
+            <div className="absolute inset-0 z-0">
                 <HeroScene />
             </div>
 
-            {/* Decorative Grid Lines */}
-            <div className="absolute inset-x-0 top-1/4 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-neon-cyan)]/20 to-transparent w-full" />
-            <div className="absolute inset-x-0 bottom-1/4 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-neon-violet)]/20 to-transparent w-full" />
+            {/* Gradient Overlay for Text Readability - Enhanced */}
+            <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] z-10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/80 z-10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-white/40 z-10 pointer-events-none" />
 
-            {/* Content Overlay */}
-            <div className="relative z-10 container mx-auto px-6 flex flex-col items-center justify-center h-full text-center">
+            {/* Main Content */}
+            <div className="relative z-20 h-full container mx-auto px-6 flex flex-col justify-center items-center pt-20">
 
-                {/* Floating Top Label */}
+                {/* Text Content */}
                 <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="mb-8 relative"
+                    variants={staggerContainer}
+                    initial="hidden"
+                    animate="visible"
+                    className="flex-1 text-center space-y-8 z-10 max-w-4xl flex flex-col justify-center"
                 >
-                    <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-[var(--color-neon-cyan)] rounded-full animate-pulse" />
-                    <div className="absolute -right-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-[var(--color-neon-cyan)] rounded-full animate-pulse" />
-                    <h2 className="text-[var(--color-neon-cyan)] tracking-[0.3em] text-xs md:text-sm font-bold uppercase border border-[var(--color-neon-cyan)]/30 py-2 px-6 rounded-full backdrop-blur-md bg-black/20">
-                        System Online // Neural Core Active
-                    </h2>
+                    {/* Role Label */}
+                    <motion.div variants={variants} className="flex items-center justify-center gap-2 mb-4">
+                        <span className="px-3 py-1 rounded-full bg-blue-50 text-[var(--color-accent-blue)] font-mono text-xs tracking-widest uppercase border border-blue-100">
+                            {heroData.role}
+                        </span>
+                    </motion.div>
+
+                    {/* Main Headline */}
+                    <motion.h1
+                        variants={variants}
+                        className="text-6xl md:text-8xl lg:text-9xl font-bold font-scifi tracking-tight leading-[1] perspective-text"
+                    >
+                        <span className="block text-gray-900 drop-shadow-sm">
+                            {heroData.headlineHighlight.split('').map((char, i) => (
+                                <span key={i} style={{ transitionDelay: `${i * 30}ms` }}>{char}</span>
+                            ))}
+                        </span>
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-violet)] drop-shadow-md">
+                            {heroData.headlineMain.split('').map((char, i) => (
+                                <span key={i} style={{ transitionDelay: `${(i + 10) * 30}ms` }}>{char}</span>
+                            ))}
+                        </span>
+                    </motion.h1>
+
+                    {/* Subheadline */}
+                    <motion.div variants={variants} className="flex justify-center pt-2">
+                        <p className="text-xl md:text-2xl text-gray-600 font-normal leading-relaxed max-w-2xl mx-auto">
+                            {heroData.subheadlineStart} <span className="text-gray-900 font-medium">{heroData.subheadlineHighlight1}</span> and <span className="text-gray-900 font-medium">{heroData.subheadlineHighlight2}</span>.
+                        </p>
+                    </motion.div>
+
+                    {/* CTA Buttons */}
+                    <motion.div variants={variants} className="pt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="#projects" className="px-8 py-4 bg-[var(--color-accent-blue)] text-white font-medium rounded-full shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition-all duration-300 flex items-center gap-2 group transform hover:-translate-y-1">
+                            {heroData.ctaProject}
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </a>
+
+                        <a href="#contact" className="px-8 py-4 bg-white text-gray-900 border border-gray-200 font-medium rounded-full hover:border-[var(--color-accent-blue)] hover:text-[var(--color-accent-blue)] transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-1">
+                            {heroData.ctaContact}
+                        </a>
+                    </motion.div>
                 </motion.div>
 
-                {/* Main Title Area */}
-                <div
-                    className="relative mb-6"
-                >
-                    {/* Decorative Brackets */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.5, duration: 1 }}
-                        className="absolute -left-8 md:-left-16 top-0 h-full w-4 border-l-2 border-t-2 border-b-2 border-white/20 hidden md:block"
-                    />
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.5, duration: 1 }}
-                        className="absolute -right-8 md:-right-16 top-0 h-full w-4 border-r-2 border-t-2 border-b-2 border-white/20 hidden md:block"
-                    />
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
-                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                        transition={{ duration: 1, delay: 0.4 }}
-                    >
-                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black font-scifi tracking-tight relative z-10">
-                            <span className="block bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-200 to-gray-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.15)] group-hover:opacity-50 transition-opacity">ARBAZ</span>
-                            <span className="block text-[var(--color-neon-cyan)] drop-shadow-[0_0_20px_rgba(0,247,255,0.4)] glitch-layers" data-text="KHAN">KHAN</span>
-                        </h1>
-                    </motion.div>
-                </div>
-
-                {/* Subheading & Typewriter */}
+                {/* Right: Hero Image - REMOVED as per user request */}
+                {/* 
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.8 }}
-                    className="max-w-2xl mx-auto mb-10 space-y-4"
+                    initial={{ opacity: 0, x: 50, scale: 0.9 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="flex-1 flex justify-center lg:justify-end relative z-10 mt-12 lg:mt-0"
                 >
-                    <div className="flex items-center justify-center gap-2 text-xl md:text-2xl text-gray-300 font-light">
-                        <span className="text-[var(--color-neon-violet)] font-mono">{">"}</span>
-                        <span className="font-bold">AI Engineer & Innovator</span>
-                    </div>
-
-                    <div className="h-12 flex items-center justify-center">
-                        <TypewriterText
-                            text="Building intelligent systems with vision, precision, and imagination."
-                            className="text-sm md:text-lg text-[var(--color-neon-cyan)]/80 font-mono tracking-wide"
-                            speed={30}
+                    <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[550px] flex items-center justify-center">
+                        <img
+                            src={profile.avatar}
+                            alt="Arbaz Khan"
+                            className="w-full h-full object-contain drop-shadow-[-10px_10px_30px_rgba(0,0,0,0.2)] filter hover:brightness-110 transition-all duration-500"
                         />
                     </div>
-                </motion.div>
+                </motion.div> 
+                */}
 
-                {/* Magnetic CTAs */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1.2 }}
-                    className="flex flex-col md:flex-row gap-6 justify-center items-center relative z-20"
-                >
-                    <MagneticButton>
-                        <a href="#projects" className="group relative px-8 py-4 bg-transparent border border-[var(--color-neon-cyan)] text-[var(--color-neon-cyan)] font-bold uppercase tracking-wider overflow-hidden hover:text-black transition-colors inline-block clip-corner">
-                            <span className="absolute inset-0 w-full h-full bg-[var(--color-neon-cyan)] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out origin-left"></span>
-                            <span className="relative z-10 flex items-center gap-2">View Mission Logs <ArrowRight className="w-5 h-5" /></span>
-                        </a>
-                    </MagneticButton>
-
-                    <MagneticButton>
-                        <a href="#about" className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[var(--color-neon-violet)] text-gray-300 hover:text-[var(--color-neon-violet)] font-bold uppercase tracking-wider transition-all inline-block clip-corner">
-                            Initialize Profile
-                        </a>
-                    </MagneticButton>
-                </motion.div>
             </div>
 
-            {/* Bottom Gradient Fade */}
-            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+            {/* Scroll Indicator */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2, duration: 1 }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+            >
+                <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Scroll to Navigate</span>
+                <ChevronDown className="w-6 h-6 text-[var(--color-accent-blue)] animate-bounce" />
+            </motion.div>
+
         </section>
     );
 }

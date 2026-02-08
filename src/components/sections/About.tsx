@@ -1,114 +1,151 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Brain, Cpu, Database, Network, MessageSquare, Code, Bot, Terminal } from "lucide-react";
-import Image from "next/image";
-
-const skills = [
-    { name: "Machine Learning", icon: <Brain className="w-6 h-6" /> },
-    { name: "Deep Learning", icon: <Network className="w-6 h-6" /> },
-    { name: "NLP", icon: <MessageSquare className="w-6 h-6" /> },
-    { name: "Computer Vision", icon: <Cpu className="w-6 h-6" /> },
-    { name: "Agents", icon: <Bot className="w-6 h-6" /> },
-    { name: "Data Science", icon: <Database className="w-6 h-6" /> },
-    { name: "Python", icon: <Terminal className="w-6 h-6" /> },
-    { name: "Django", icon: <Code className="w-6 h-6" /> },
-];
-
+import { Brain, Cpu, Database, Network, MessageSquare, Code, Bot, Terminal, Layers } from "lucide-react";
 import TiltCard from "../ui/TiltCard";
 
+const skills = [
+    { name: "Machine Learning", icon: <Brain className="w-8 h-8" />, desc: "TensorFlow, PyTorch" },
+    { name: "Deep Learning", icon: <Network className="w-8 h-8" />, desc: "Neural Architectures" },
+    { name: "NLP", icon: <MessageSquare className="w-8 h-8" />, desc: "Transformers, LLMs" },
+    { name: "Computer Vision", icon: <Cpu className="w-8 h-8" />, desc: "YOLO, OpenCV" },
+    { name: "Agent Systems", icon: <Bot className="w-8 h-8" />, desc: "LangChain, AutoGPT" },
+    { name: "Big Data", icon: <Database className="w-8 h-8" />, desc: "Spark, PostgreSQL" },
+    { name: "Backend", icon: <Terminal className="w-8 h-8" />, desc: "Django, FastAPI" },
+    { name: "Fullstack", icon: <Layers className="w-8 h-8" />, desc: "React, Next.js" },
+];
 
 export default function About() {
-    return (
-        <section id="about" className="py-20 bg-black relative overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-[var(--color-neon-violet)] opacity-5 blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-[var(--color-neon-cyan)] opacity-5 blur-[100px] pointer-events-none" />
+    const [profile, setProfile] = useState({
+        name: "Arbaz Khan",
+        title: "System Architect",
+        bio: "I operate at the intersection of Research and Deployment. My focus is not just on training models, but on building robust, scalable AI systems that solve real-world problems.",
+        avatar: "/profilee.png"
+    });
 
-            <div className="container mx-auto px-6">
+    useEffect(() => {
+        fetch('/api/content/profile')
+            .then(res => res.json())
+            .then(data => {
+                if (data && !data.error) {
+                    setProfile(prev => ({ ...prev, ...data }));
+                }
+            })
+            .catch(err => console.error("Failed to load profile", err));
+    }, []);
+
+    return (
+        <section id="about" className="py-32 bg-[var(--color-bg-primary)] relative">
+
+            {/* Ambient Background Glow */}
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-[var(--color-accent-violet)] opacity-[0.03] blur-[150px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-[var(--color-accent-blue)] opacity-[0.03] blur-[150px] pointer-events-none" />
+
+            {/* Technical Grid Pattern */}
+            <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
+                style={{ backgroundImage: `radial-gradient(var(--color-accent-blue) 0.5px, transparent 0.5px)`, backgroundSize: '30px 30px' }} />
+
+            <div className="container relative z-10">
+
+                {/* Text Content */}
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="flex flex-col lg:flex-row items-center gap-16"
+                    className="max-w-6xl mx-auto space-y-20 text-center"
                 >
-                    {/* Text Content */}
-                    <div className="lg:w-1/2 space-y-8">
-                        <div className="inline-block">
-                            <h2 className="text-4xl md:text-5xl font-bold font-scifi text-white mb-2">My Mission</h2>
-                            <div className="h-1 w-full bg-gradient-to-r from-[var(--color-neon-cyan)] to-transparent"></div>
+                    <div className="space-y-8 relative">
+                        {/* Decorative HUD Lines for Header */}
+                        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent-blue)] to-transparent opacity-30" />
+
+                        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-blue-200 bg-blue-50/50 mx-auto shadow-sm backdrop-blur-sm">
+                            <span className="w-2.5 h-2.5 rounded-full bg-[var(--color-accent-blue)] animate-pulse shadow-[0_0_12px_var(--color-accent-blue)]"></span>
+                            <span className="text-[11px] font-black font-mono text-[var(--color-accent-blue)] tracking-[0.3em] uppercase">Sector Intelligence</span>
                         </div>
 
-                        <p className="text-xl text-gray-300 leading-relaxed">
-                            On a quest to push intelligence forward. I am an <span className="text-[var(--color-neon-cyan)] font-semibold">AI Engineer</span> dedicated to building systems that bridge the gap between human creativity and machine precision.
-                        </p>
-                        <p className="text-gray-400 leading-relaxed h-full min-h-[100px]">
-                            With a deep focus on machine learning architectures and autonomous agents, I construct digital environments where data transforms into actionable intelligence. My work spans from computer vision to complex NLP architectures, always aiming for the bleeding edge of innovation.
-                        </p>
-
-                        {/* Skills Grid */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                            {skills.map((skill, index) => (
-                                <motion.div
-                                    key={skill.name}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                                    whileHover={{ y: -5, boxShadow: "0 0 15px rgba(0, 247, 255, 0.3)" }}
-                                    className="p-4 bg-white/5 border border-white/10 rounded-lg flex flex-col items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer group backdrop-blur-sm"
-                                >
-                                    <div className="text-[var(--color-neon-cyan)] group-hover:text-[var(--color-neon-violet)] transition-colors">{skill.icon}</div>
-                                    <span className="text-sm font-medium text-gray-300 font-scifi text-center">{skill.name}</span>
-                                </motion.div>
-                            ))}
-                        </div>
+                        <h2 className="text-7xl md:text-9xl font-bold font-scifi leading-[0.9] text-gray-900 tracking-tighter">
+                            Engineering <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-blue)] via-[var(--color-accent-violet)] to-[var(--color-accent-blue)] bg-[length:200%_auto] animate-[shimmer_5s_linear_infinite]">Intelligence.</span>
+                        </h2>
                     </div>
 
-                    {/* 3D/Visual Content */}
-                    <div className="lg:w-1/2 relative flex justify-center perspective-1000">
-                        <TiltCard className="relative w-80 h-96 md:w-96 md:h-[500px]">
-                            <div className="w-full h-full bg-gradient-to-br from-[#0C0C0C] to-black border border-white/10 rounded-2xl flex items-center justify-center overflow-hidden group relative">
-                                {/* Scanner Line */}
-                                <div className="absolute top-0 w-full h-[2px] bg-[var(--color-neon-cyan)] shadow-[0_0_15px_var(--color-neon-cyan)] animate-[scan_4s_ease-in-out_infinite] z-20 opacity-50" />
+                    <div className="relative group perspective-[2000px] max-w-5xl mx-auto">
+                        {/* Decorative Corner Accents (HUD Style) */}
+                        <div className="absolute -top-6 -left-6 w-12 h-12 border-t-2 border-l-2 border-blue-500/30 rounded-tl-3xl group-hover:scale-110 transition-transform duration-700" />
+                        <div className="absolute -top-6 -right-6 w-12 h-12 border-t-2 border-r-2 border-blue-500/30 rounded-tr-3xl group-hover:scale-110 transition-transform duration-700" />
+                        <div className="absolute -bottom-6 -left-6 w-12 h-12 border-b-2 border-l-2 border-violet-500/30 rounded-bl-3xl group-hover:scale-110 transition-transform duration-700" />
+                        <div className="absolute -bottom-6 -right-6 w-12 h-12 border-b-2 border-r-2 border-violet-500/30 rounded-br-3xl group-hover:scale-110 transition-transform duration-700" />
 
-                                {/* Placeholder for Profile */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black z-0 opacity-80" />
+                        {/* Tech Logs - Side Decoration */}
+                        <div className="absolute -left-20 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-8 opacity-20 pointer-events-none">
+                            <div className="flex flex-col items-start gap-1 font-mono text-[8px] text-gray-900">
+                                <span>[LOAD_BIO_SEQ]</span>
+                                <div className="w-12 h-1 bg-blue-500/20" />
+                            </div>
+                            <div className="flex flex-col items-start gap-1 font-mono text-[8px] text-gray-900">
+                                <span>[NEURAL_SYNC]</span>
+                                <div className="w-8 h-1 bg-violet-500/20" />
+                            </div>
+                        </div>
 
-                                {/* Holographic Overlay Effects */}
-                                <div className="absolute inset-0 bg-[linear-gradient(rgba(0,247,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,247,255,0.05)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20" />
-                                <div className="absolute inset-0 border-2 border-[var(--color-neon-cyan)] opacity-30 rounded-2xl md:translate-x-4 md:translate-y-4 transition-transform z-0" />
+                        <div className="absolute -inset-8 bg-gradient-to-tr from-[var(--color-accent-blue)] to-[var(--color-accent-violet)] opacity-[0.02] blur-3xl group-hover:opacity-[0.05] transition-opacity duration-1000 pointer-events-none rounded-[4rem]" />
 
-                                <div className="relative z-10 p-6 text-center transform transition-transform group-hover:scale-105 duration-500">
-                                    <div className="relative w-32 h-32 mx-auto mb-4">
-                                        <div className="absolute inset-0 rounded-full border-2 border-[var(--color-neon-cyan)] border-dashed animate-spin-slow opacity-50"></div>
-                                        <div className="absolute inset-1 rounded-full border border-[var(--color-neon-violet)] animate-reverse-spin opacity-50"></div>
-                                        <div className="w-full h-full rounded-full bg-gray-800 overflow-hidden flex items-center justify-center relative z-10 border-2 border-[var(--color-neon-cyan)]/50 bg-black">
-                                            <Image
-                                                src="/profilee.png"
-                                                alt="Arbaz Khan"
-                                                width={128}
-                                                height={128}
-                                                className="object-cover w-full h-full"
-                                            />
-                                        </div>
-                                    </div>
+                        <div className="relative glass p-16 md:p-24 rounded-[4rem] border-white/60 shadow-[0_30px_100px_rgba(0,0,0,0.02)] hover:shadow-[0_50px_100px_rgba(0,86,210,0.06)] transition-all duration-1000 overflow-hidden">
+                            {/* Inner Shimmer */}
+                            <div className="absolute inset-0 shimmer opacity-[0.03] pointer-events-none" />
 
-                                    <h3 className="text-2xl font-bold font-scifi text-white relative">
-                                        Arbaz Khan
-                                        <span className="absolute -top-2 -right-4 text-[10px] text-[var(--color-neon-cyan)] font-mono animate-pulse">V2.0</span>
-                                    </h3>
-                                    <p className="text-[var(--color-neon-cyan)] text-sm tracking-widest uppercase mt-1">AI Architect</p>
+                            <p className="whitespace-pre-line leading-[1.6] text-3xl md:text-4xl text-gray-800 font-display font-semibold max-w-4xl mx-auto relative z-10">
+                                {profile.bio}
+                            </p>
 
-                                    <div className="mt-6 flex justify-center space-x-4">
-                                        <div className="p-2 border border-white/10 rounded bg-white/5 font-mono text-xs text-[var(--color-neon-cyan)]">LVL. 99</div>
-                                        <div className="p-2 border border-white/10 rounded bg-white/5 font-mono text-xs text-[var(--color-neon-violet)]">INT. MAX</div>
-                                    </div>
+                            {/* Technical Stats Reveal */}
+                            <div className="mt-16 pt-12 border-t border-gray-100/50 flex flex-wrap justify-center gap-12 md:gap-24">
+                                <div className="text-center group/stat">
+                                    <div className="text-4xl md:text-5xl font-black font-scifi text-[var(--color-accent-blue)] mb-1">05+</div>
+                                    <div className="text-[10px] font-bold font-mono text-gray-400 uppercase tracking-widest">Years Experience</div>
+                                </div>
+                                <div className="text-center group/stat">
+                                    <div className="text-4xl md:text-5xl font-black font-scifi text-[var(--color-accent-violet)] mb-1">50+</div>
+                                    <div className="text-[10px] font-bold font-mono text-gray-400 uppercase tracking-widest">Models Deployed</div>
+                                </div>
+                                <div className="text-center group/stat">
+                                    <div className="text-4xl md:text-5xl font-black font-scifi text-[var(--color-accent-pink)] mb-1">99%</div>
+                                    <div className="text-[10px] font-bold font-mono text-gray-400 uppercase tracking-widest">System Uptime</div>
                                 </div>
                             </div>
-                        </TiltCard>
+                        </div>
+                    </div>
+
+                    {/* Skills Header */}
+                    <div className="pt-20 space-y-4">
+                        <h3 className="text-2xl font-bold font-scifi uppercase tracking-[0.2em] text-gray-400">Technical Arsenal</h3>
+                        <div className="w-16 h-1 bg-blue-500/20 mx-auto" />
+                    </div>
+
+                    {/* Skills Grid */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        {skills.map((skill, index) => (
+                            <motion.div
+                                key={skill.name}
+                                whileHover={{ y: -15, scale: 1.02 }}
+                                className="p-10 border border-gray-100/80 bg-white/5 backdrop-blur-md rounded-[3rem] flex flex-col items-center justify-center gap-6 hover:bg-white hover:shadow-2xl hover:shadow-[var(--color-accent-blue)]/10 transition-all duration-500 group text-center relative overflow-hidden"
+                            >
+                                <div className="shimmer absolute inset-0 opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity" />
+
+                                <div className="text-[var(--color-accent-blue)] group-hover:text-[var(--color-accent-violet)] transition-all duration-500 transform scale-150 group-hover:rotate-[360deg] group-hover:scale-[1.7]">
+                                    {skill.icon}
+                                </div>
+                                <div className="space-y-2 relative z-10">
+                                    <h4 className="text-lg font-black text-gray-900 font-scifi uppercase tracking-tight">{skill.name}</h4>
+                                    <div className="h-0.5 w-8 bg-gray-100 mx-auto group-hover:w-16 transition-all duration-500 group-hover:bg-[var(--color-accent-blue)]/30" />
+                                    <p className="text-[11px] text-gray-400 font-black uppercase tracking-widest font-mono">{skill.desc}</p>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </motion.div>
+
             </div>
         </section>
     );

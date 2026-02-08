@@ -5,6 +5,8 @@ import CyberCursor from "@/components/ui/CyberCursor"; // Import Cursor
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import StarField from "@/components/scene/StarField";
 import CRTOverlay from "@/components/ui/CRTOverlay";
+import Spotlight from "@/components/ui/Spotlight";
+import BackgroundText from "@/components/ui/BackgroundText";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +33,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased has-starfield`}
       >
+        <div className="grid-bg" />
+        <div className="noise-overlay" />
+        <Spotlight />
+        <BackgroundText />
         <CRTOverlay />
         <StarField />
         <CyberCursor />

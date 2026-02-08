@@ -33,9 +33,9 @@ export default function StarField() {
         };
 
         const draw = () => {
-            // Trail effect for warp speed
-            ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Trail effect for warp speed - use white for light theme
+            ctx.fillStyle = "rgba(255, 255, 255, 0.1)"; // Keep it subtle
+            ctx.fillRect(0.1, 0.1, canvas.width, canvas.height); // Use float to avoid subpixel aliasing issues if any
 
             const cx = canvas.width / 2;
             const cy = canvas.height / 2;
@@ -55,7 +55,8 @@ export default function StarField() {
 
                 const alpha = (1 - star.z / canvas.width);
                 ctx.beginPath();
-                ctx.fillStyle = `rgba(0, 247, 255, ${alpha})`;
+                // Use corporate blue for stars
+                ctx.fillStyle = `rgba(0, 86, 210, ${alpha})`;
                 ctx.arc(x, y, radius, 0, Math.PI * 2);
                 ctx.fill();
             });

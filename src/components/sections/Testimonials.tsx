@@ -11,25 +11,40 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section className="py-20 bg-black relative">
-            <div className="container mx-auto px-6">
-                <h2 className="text-3xl font-bold font-scifi text-white mb-16 text-center">Data Validation</h2>
+        <section className="py-24 bg-[var(--color-bg-primary)] border-t border-[var(--glass-border)] relative overflow-hidden">
+
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="flex flex-col items-center mb-16 text-center space-y-4">
+                    <span className="text-gray-500 font-mono text-xs tracking-[0.3em] uppercase opacity-80">
+                        Testimonials
+                    </span>
+                    <h2 className="text-4xl font-bold font-scifi text-gray-900">
+                        Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-cyan)]">Validation</span>
+                    </h2>
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {testimonials.map((t, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ delay: i * 0.2 }}
-                            className="relative p-8 rounded-xl bg-white/5 border border-white/5 backdrop-blur-sm hover:border-[var(--color-neon-violet)] transition-colors duration-300"
+                            className="relative p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 group"
                         >
-                            <Quote className="absolute top-4 left-4 text-[var(--color-neon-violet)] w-8 h-8 opacity-50" />
-                            <p className="text-gray-300 italic mb-6 relative z-10 pt-4">"{t.quote}"</p>
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-neon-cyan)] to-[var(--color-neon-violet)]" />
+                            <div className="absolute top-6 left-6 text-[var(--color-accent-blue)] opacity-20 group-hover:opacity-100 transition-opacity duration-300">
+                                <Quote className="w-10 h-10 rotate-180" />
+                            </div>
+
+                            <p className="text-gray-600 italic mb-8 relative z-10 pt-8 font-body leading-relaxed">
+                                "{t.quote}"
+                            </p>
+
+                            <div className="flex items-center gap-4 border-t border-gray-100 pt-4">
+                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-accent-blue)] to-[var(--color-accent-violet)] shadow-lg shadow-blue-500/20" />
                                 <div>
-                                    <h4 className="text-white font-bold text-sm">{t.author}</h4>
-                                    <span className="text-gray-500 text-xs uppercase">{t.role}</span>
+                                    <h4 className="text-gray-900 font-bold text-sm font-scifi mb-0.5">{t.author}</h4>
+                                    <span className="text-[10px] text-gray-500 font-mono uppercase tracking-wider">{t.role}</span>
                                 </div>
                             </div>
                         </motion.div>

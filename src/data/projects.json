@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "title": "WeightGait Analysis",
+        "category": "ML / Healthcare",
+        "description": "Diagnosing weight distribution anomalies via computer vision gait analysis.",
+        "link": "https://github.com",
+        "color": "var(--color-accent-cyan)"
+    },
+    {
+        "id": 2,
+        "title": "NLP Emergency Triage",
+        "category": "NLP / Public Safety",
+        "description": "AI-driven emergency call prioritization system for rapid response dispatch.",
+        "link": "https://github.com",
+        "color": "var(--color-accent-violet)"
+    },
+    {
+        "id": 3,
+        "title": "Helmet Detector",
+        "category": "Computer Vision",
+        "description": "Real-time safety compliance monitoring using YOLOv8 for industrial sites.",
+        "link": "https://github.com",
+        "color": "var(--color-accent-blue)"
+    },
+    {
+        "id": 4,
+        "title": "Disease Prediction",
+        "category": "Predictive Analytics",
+        "description": "Early-warning system aggregating patient history to forecast health risks.",
+        "link": "https://github.com",
+        "color": "var(--color-accent-cyan)"
+    },
+    {
+        "id": 5,
+        "title": "Symptom Engine",
+        "category": "Clinical Decision Support",
+        "description": "Heuristic engine mapping complex symptom clusters to probable diagnoses.",
+        "link": "https://github.com",
+        "color": "var(--color-accent-violet)"
+    },
+    {
+        "id": 6,
+        "title": "ICU Deterioration",
+        "category": "Critical Care AI",
+        "description": "Real-time vitals monitoring to predict patient instability in intensive care.",
+        "link": "https://github.com",
+        "color": "var(--color-accent-pink)"
+    }
+]

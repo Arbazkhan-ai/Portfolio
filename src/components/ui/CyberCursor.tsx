@@ -57,9 +57,9 @@ export default function CyberCursor() {
                 transition={{ type: "spring", stiffness: 1000, damping: 50, mass: 0.2 }}
             >
                 <div className="relative w-8 h-8">
-                    <div className="absolute inset-0 border border-[var(--color-neon-cyan)] rounded-full animate-[spin_4s_linear_infinite]" />
-                    <div className="absolute inset-2 border border-[var(--color-neon-violet)] rounded-full animate-[spin_2s_linear_infinite_reverse]" />
-                    <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-white rounded-full -translate-x-1/2 -translate-y-1/2" />
+                    <div className="absolute inset-0 border border-[var(--color-accent-blue)] rounded-full animate-[spin_4s_linear_infinite]" />
+                    <div className="absolute inset-2 border border-[var(--color-accent-violet)] rounded-full animate-[spin_2s_linear_infinite_reverse]" />
+                    <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-black rounded-full -translate-x-1/2 -translate-y-1/2" />
                 </div>
             </motion.div>
 
@@ -72,7 +72,7 @@ export default function CyberCursor() {
                 }}
                 transition={{ type: "spring", stiffness: 100, damping: 20 }}
             >
-                <div className={`w-[200px] h-[200px] bg-[var(--color-neon-cyan)] rounded-full blur-[80px] transition-opacity duration-300 ${clicked ? 'opacity-40' : 'opacity-10'}`} />
+                <div className={`w-[200px] h-[200px] bg-[var(--color-accent-blue)] rounded-full blur-[80px] transition-opacity duration-300 ${clicked ? 'opacity-40' : 'opacity-10'}`} />
             </motion.div>
         </>
     );

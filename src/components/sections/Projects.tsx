@@ -1,111 +1,127 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Activity, Shield, Stethoscope, Search, Mic } from "lucide-react";
+import { ExternalLink, Github, Activity, Shield, Stethoscope, Search, Mic, Brain, HeartPulse, Code } from "lucide-react";
+import TiltCard from "../ui/TiltCard";
 
 interface Project {
+    id?: number;
     title: string;
     category: string;
     description: string;
-    icon: React.ReactNode;
-    colorClass: string;
+    link?: string;
+    color?: string;
+    image?: string;
 }
 
-const projects: Project[] = [
-    {
-        title: "WeightGait Analysis",
-        category: "ML Model",
-        description: "Advanced gait analysis system utilizing machine learning to diagnose weight distribution issues.",
-        icon: <Activity />,
-        colorClass: "text-[var(--color-neon-cyan)]"
-    },
-    {
-        title: "NLP Emergency Triage",
-        category: "NLP System",
-        description: "Intelligent emergency call processing system that prioritizes cases based on urgency.",
-        icon: <Mic />,
-        colorClass: "text-[var(--color-neon-violet)]"
-    },
-    {
-        title: "Helmet Detector",
-        category: "Computer Vision",
-        description: "Real-time YOLOv8 implementation for safety equipment verification in construction zones.",
-        icon: <Shield />,
-        colorClass: "text-[var(--color-digital-blue)]"
-    },
-    {
-        title: "Disease Prediction",
-        category: "Healthcare AI",
-        description: "Predictive engine aggregating patient data to forecast potential disease risks early.",
-        icon: <Stethoscope />,
-        colorClass: "text-[var(--color-neon-cyan)]"
-    },
-    {
-        title: "Symptom Engine",
-        category: "Prediction Engine",
-        description: "Heuristic-based engine mapping complex symptom clusters to likely diagnoses.",
-        icon: <Search />,
-        colorClass: "text-[var(--color-neon-violet)]"
-    },
-    {
-        title: "Patient Deterioration",
-        category: "ICU AI",
-        description: "Real-time monitoring system predicting patient deterioration in ICU settings.",
-        icon: <Activity />,
-        colorClass: "text-[var(--color-digital-blue)]"
-    }
-];
+const getIcon = (category: string) => {
+    const cat = category.toLowerCase();
+    if (cat.includes("vision")) return <Shield className="w-6 h-6" />;
+    if (cat.includes("nlp") || cat.includes("language")) return <Mic className="w-6 h-6" />;
+    if (cat.includes("health") || cat.includes("medical")) return <Stethoscope className="w-6 h-6" />;
+    if (cat.includes("predict")) return <Activity className="w-6 h-6" />;
+    if (cat.includes("care")) return <HeartPulse className="w-6 h-6" />;
+    if (cat.includes("search") || cat.includes("engine")) return <Search className="w-6 h-6" />;
+    if (cat.includes("brain") || cat.includes("neural")) return <Brain className="w-6 h-6" />;
+    return <Code className="w-6 h-6" />;
+};
 
-import TiltCard from "../ui/TiltCard";
+const getColor = (index: number) => {
+    const colors = ["var(--color-accent-cyan)", "var(--color-accent-violet)", "var(--color-accent-blue)", "var(--color-accent-pink)"];
+    return colors[index % colors.length];
+};
 
 export default function Projects() {
+    const [projects, setProjects] = useState<Project[]>([]);
+
+    useEffect(() => {
+        fetch('/api/content/projects')
+            .then(res => res.json())
+            .then(data => setProjects(data))
+            .catch(err => console.error("Failed to load projects", err));
+    }, []);
+
     return (
-        <section id="projects" className="py-20 bg-[#050505] relative cursor-none-area">
-            <div className="container mx-auto px-6">
-                <div className="flex flex-col items-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold font-scifi text-white mb-4 text-center">MISSION LOGS</h2>
-                    <div className="w-24 h-1 bg-[var(--color-neon-cyan)] animate-pulse"></div>
-                    <p className="text-gray-500 font-mono mt-2 text-xs">AWAITING INPUT /// SELECT A FILE</p>
+        <section id="projects" className="py-32 bg-[var(--color-bg-primary)] relative">
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-20" />
+
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="flex flex-col items-center mb-24 space-y-4">
+                    <span className="text-[var(--color-accent-cyan)] font-mono text-sm tracking-[0.3em] uppercase opacity-80">
+                        Operational Logs
+                    </span>
+                    <h2 className="text-5xl md:text-7xl font-bold font-scifi text-gray-900 text-center">
+                        SELECTED <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-violet)]">WORKS</span>
+                    </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {projects.map((project, index) => (
-                        <TiltCard key={index} className="h-full">
+                        <TiltCard key={project.id || index} className="h-full">
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                                className="group relative bg-[#0C0C0C]/80 border border-white/10 p-6 rounded-xl hover:border-[var(--color-neon-cyan)] transition-colors duration-300 overflow-hidden h-full backdrop-blur-md"
+                                className="group relative bg-white border border-gray-100 p-8 rounded-3xl hover:border-[var(--color-accent-blue)] transition-all duration-700 h-full flex flex-col justify-between overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,86,210,0.1)]"
                             >
-                                {/* Holographic Scan Line */}
-                                <div className="absolute top-0 left-0 w-full h-1 bg-[var(--color-neon-cyan)] opacity-0 group-hover:opacity-50 group-hover:top-[120%] transition-all duration-[1.5s] ease-in-out pointer-events-none z-20 shadow-[0_0_15px_var(--color-neon-cyan)]" />
+                                {/* Shimmer Effect */}
+                                <div className="shimmer absolute inset-0 opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity duration-700" />
 
-                                {/* Glow Effect */}
-                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-neon-cyan)] opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none" />
+                                {/* Background Index Number */}
+                                <div className="absolute -top-4 -right-2 text-8xl font-bold text-gray-50 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500 font-display">
+                                    {(index + 1).toString().padStart(2, '0')}
+                                </div>
 
-                                <div className="relative z-10 flex flex-col h-full">
-                                    <div className="flex items-center justify-between mb-4">
-                                        <div className={`p-3 rounded-lg bg-white/5 ${project.colorClass} ring-1 ring-white/10 group-hover:ring-[var(--color-neon-cyan)] transition-all`}>
-                                            {project.icon}
+                                {/* Hover Glow */}
+                                <div
+                                    className="absolute -inset-24 opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none blur-3xl"
+                                    style={{ background: `radial-gradient(circle at center, ${project.color || getColor(index)}, transparent 70%)` }}
+                                />
+
+                                <div className="relative z-10">
+                                    <div className="flex justify-between items-start mb-8">
+                                        <div
+                                            className="p-4 rounded-2xl bg-gray-50 border border-gray-100 group-hover:bg-white group-hover:shadow-lg group-hover:scale-110 transition-all duration-500"
+                                            style={{ color: project.color || getColor(index) }}
+                                        >
+                                            {getIcon(project.category)}
                                         </div>
-                                        <span className="text-xs font-mono text-gray-500 uppercase tracking-widest border border-dashed border-gray-700 px-2 py-1 rounded">
+                                        <div className="px-4 py-1.5 rounded-full bg-blue-50/50 border border-blue-100 text-[10px] font-mono font-bold tracking-widest text-[var(--color-accent-blue)] uppercase">
                                             {project.category}
-                                        </span>
-                                    </div>
-
-                                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[var(--color-neon-cyan)] transition-colors font-scifi">{project.title}</h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">{project.description}</p>
-
-                                    <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                                        <div className="flex flex-col">
-                                            <span className="text-[9px] text-[var(--color-neon-cyan)] font-mono uppercase">Status</span>
-                                            <span className="text-[10px] text-gray-400 font-mono">COMPLETE</span>
-                                        </div>
-                                        <div className="flex space-x-2">
-                                            <button className="text-gray-400 hover:text-white transition-colors bg-white/5 p-2 rounded hover:bg-[var(--color-neon-cyan)] hover:text-black"><Github className="w-4 h-4" /></button>
-                                            <button className="text-[var(--color-neon-cyan)] hover:text-white transition-colors bg-[var(--color-neon-cyan)]/10 p-2 rounded hover:bg-[var(--color-neon-cyan)] hover:text-black"><ExternalLink className="w-4 h-4" /></button>
                                         </div>
                                     </div>
+
+                                    <h3 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-[var(--color-accent-blue)] transition-colors font-scifi leading-tight">
+                                        {project.title}
+                                    </h3>
+
+                                    <p className="text-gray-500 text-sm leading-relaxed mb-8 font-body">
+                                        {project.description}
+                                    </p>
+                                </div>
+
+                                {/* Image Preview if available */}
+                                {project.image && (
+                                    <div className="mb-8 rounded-2xl overflow-hidden h-48 w-full relative z-10 border border-gray-100 shadow-inner">
+                                        <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    </div>
+                                )}
+
+                                <div className="relative z-10 pt-6 mt-auto flex items-center justify-between">
+                                    <div className="flex gap-5">
+                                        <button className="text-gray-400 hover:text-[var(--color-accent-blue)] transition-all hover:scale-125 transform duration-300">
+                                            <Github className="w-5 h-5" />
+                                        </button>
+                                        {project.link && (
+                                            <a href={project.link} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[var(--color-accent-blue)] transition-all hover:scale-125 transform duration-300">
+                                                <ExternalLink className="w-5 h-5" />
+                                            </a>
+                                        )}
+                                    </div>
+                                    <a href={project.link || "#"} className="flex items-center gap-2 text-[10px] font-mono font-bold text-[var(--color-accent-blue)] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0">
+                                        EXPLORE MISSION <ExternalLink className="w-3 h-3" />
+                                    </a>
                                 </div>
                             </motion.div>
                         </TiltCard>
