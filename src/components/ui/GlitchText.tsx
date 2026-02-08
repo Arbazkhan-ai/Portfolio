@@ -5,7 +5,7 @@ import { motion, useAnimationControls } from "framer-motion";
 interface GlitchTextProps {
     text: string;
     className?: string;
-    as?: React.ElementType;
+    as?: any;
 }
 
 export default function GlitchText({ text, className = "", as: Component = "span" }: GlitchTextProps) {

@@ -11,9 +11,10 @@ const getProjects = () => {
     return JSON.parse(fs.readFileSync(dataFilePath, 'utf8'));
 };
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
-        const id = parseInt(params.id);
+        const { id: idStr } = await params;
+        const id = parseInt(idStr);
         const projects = getProjects();
 
         const updatedProjects = projects.filter((p: any) => p.id !== id);
@@ -26,9 +27,10 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     }
 }
 
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
-        const id = parseInt(params.id);
+        const { id: idStr } = await params;
+        const id = parseInt(idStr);
         const updatedProject = await request.json();
         const projects = getProjects();
 
