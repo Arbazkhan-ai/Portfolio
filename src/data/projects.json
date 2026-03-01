@@ -1,50 +1,102 @@
 [
     {
         "id": 1,
-        "title": "WeightGait Analysis",
-        "category": "ML / Healthcare",
-        "description": "Diagnosing weight distribution anomalies via computer vision gait analysis.",
-        "link": "https://github.com",
-        "color": "var(--color-accent-cyan)"
+        "title": "Helmet Detection AI",
+        "category": "Computer Vision",
+        "description": "Real-time Helmet Detection system using Deep Learning and YOLOv8. Detects helmets on people in images, videos, and live camera feeds — making workplaces and safety monitoring smarter and automated.",
+        "link": "https://github.com/Arbazkhan-ai/Helmet-Detection-Using-Deep-learning-and-YOLO",
+        "githubLink": "https://github.com/Arbazkhan-ai/Helmet-Detection-Using-Deep-learning-and-YOLO",
+        "color": "var(--color-accent-cyan)",
+        "image": "/helmet-detection.png",
+        "tags": [
+            "YOLOv8",
+            "Deep Learning",
+            "Python",
+            "Jupyter",
+            "Safety AI"
+        ]
     },
     {
         "id": 2,
-        "title": "NLP Emergency Triage",
-        "category": "NLP / Public Safety",
-        "description": "AI-driven emergency call prioritization system for rapid response dispatch.",
-        "link": "https://github.com",
-        "color": "var(--color-accent-violet)"
+        "title": "NGAI Cricket Vision",
+        "category": "Computer Vision / Sports",
+        "description": "Next-generation AI cricket analysis system combining computer vision techniques for real-time ball tracking, batsman pose estimation, and LBW decision support.",
+        "link": "https://github.com/Arbazkhan-ai/NGAI-Cricket-Computer-Vision",
+        "githubLink": "https://github.com/Arbazkhan-ai/NGAI-Cricket-Computer-Vision",
+        "color": "var(--color-accent-violet)",
+        "image": "/cricket-vision.png",
+        "tags": [
+            "Computer Vision",
+            "TypeScript",
+            "Ball Tracking",
+            "Sports AI"
+        ]
     },
     {
         "id": 3,
-        "title": "Helmet Detector",
-        "category": "Computer Vision",
-        "description": "Real-time safety compliance monitoring using YOLOv8 for industrial sites.",
-        "link": "https://github.com",
-        "color": "var(--color-accent-blue)"
+        "title": "Batsman Pose Detection",
+        "category": "Pose Estimation / Sports",
+        "description": "AI-powered batsman pose detection and analysis using Google MediaPipe. Tracks 33 body landmarks in real-time for cricket stance evaluation and biomechanical analysis.",
+        "link": "https://github.com/Arbazkhan-ai/Batsman-Pose-Detection-Using-MediaPipe",
+        "githubLink": "https://github.com/Arbazkhan-ai/Batsman-Pose-Detection-Using-MediaPipe",
+        "color": "var(--color-accent-blue)",
+        "image": "/pose-detection.png",
+        "tags": [
+            "MediaPipe",
+            "Python",
+            "Pose Estimation",
+            "Biomechanics"
+        ]
     },
     {
         "id": 4,
-        "title": "Disease Prediction",
-        "category": "Predictive Analytics",
-        "description": "Early-warning system aggregating patient history to forecast health risks.",
-        "link": "https://github.com",
-        "color": "var(--color-accent-cyan)"
+        "title": "Fabric Detection + Flutter App",
+        "category": "Computer Vision / Mobile",
+        "description": "End-to-end fabric defect detection system powered by AI, paired with a cross-platform Flutter mobile app for on-site quality control and real-time classification.",
+        "link": "https://github.com/Arbazkhan-ai/Fabric-Detection-and-Flutter-app",
+        "githubLink": "https://github.com/Arbazkhan-ai/Fabric-Detection-and-Flutter-app",
+        "color": "var(--color-accent-pink)",
+        "image": "/fabric-detection.png",
+        "tags": [
+            "Flutter",
+            "HTML",
+            "Deep Learning",
+            "Mobile AI",
+            "Quality Control"
+        ]
     },
     {
         "id": 5,
-        "title": "Symptom Engine",
-        "category": "Clinical Decision Support",
-        "description": "Heuristic engine mapping complex symptom clusters to probable diagnoses.",
-        "link": "https://github.com",
-        "color": "var(--color-accent-violet)"
+        "title": "Voice Sentiment Analysis",
+        "category": "NLP / Voice AI",
+        "description": "AI system that analyzes voice recordings to detect emotional sentiment and tone. Combines audio signal processing with NLP models to classify speech as positive, negative, or neutral.",
+        "link": "https://github.com/Arbazkhan-ai/voice-sentiment-analysis-ai",
+        "githubLink": "https://github.com/Arbazkhan-ai/voice-sentiment-analysis-ai",
+        "color": "var(--color-accent-cyan)",
+        "image": "/voice-sentiment.png",
+        "tags": [
+            "NLP",
+            "Python",
+            "Jupyter",
+            "Audio AI",
+            "Sentiment Analysis"
+        ]
     },
     {
         "id": 6,
-        "title": "ICU Deterioration",
-        "category": "Critical Care AI",
-        "description": "Real-time vitals monitoring to predict patient instability in intensive care.",
-        "link": "https://github.com",
-        "color": "var(--color-accent-pink)"
+        "title": "PipMaster Pro",
+        "category": "FinTech / Flutter App",
+        "description": "Professional forex trading pip calculator and risk management app built with Flutter. Features real-time P&L calculations, risk manager, trade history with PDF export, and a premium dark UI.",
+        "link": "https://github.com/Arbazkhan-ai/Master-pip-Vibe-coding",
+        "githubLink": "https://github.com/Arbazkhan-ai/Master-pip-Vibe-coding",
+        "color": "var(--color-accent-violet)",
+        "image": "/master-pip.png",
+        "tags": [
+            "Flutter",
+            "Dart",
+            "FinTech",
+            "Trading",
+            "Mobile App"
+        ]
     }
 ]

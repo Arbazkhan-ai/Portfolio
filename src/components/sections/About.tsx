@@ -55,39 +55,15 @@ export default function About() {
                     viewport={{ once: true }}
                     className="max-w-6xl mx-auto space-y-20 text-center"
                 >
-                    <div className="space-y-8 relative">
-                        {/* Decorative HUD Lines for Header */}
-                        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent-blue)] to-transparent opacity-30" />
-
-                        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-blue-200 bg-blue-50/50 mx-auto shadow-sm backdrop-blur-sm">
-                            <span className="w-2.5 h-2.5 rounded-full bg-[var(--color-accent-blue)] animate-pulse shadow-[0_0_12px_var(--color-accent-blue)]"></span>
-                            <span className="text-[11px] font-black font-mono text-[var(--color-accent-blue)] tracking-[0.3em] uppercase">Sector Intelligence</span>
-                        </div>
-
-                        <h2 className="text-7xl md:text-9xl font-bold font-scifi leading-[0.9] text-gray-900 tracking-tighter">
-                            Engineering <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-blue)] via-[var(--color-accent-violet)] to-[var(--color-accent-blue)] bg-[length:200%_auto] animate-[shimmer_5s_linear_infinite]">Intelligence.</span>
+                    <div className="space-y-6">
+                        <span className="text-sm font-semibold text-[var(--color-accent-blue)] tracking-wide">About Me</span>
+                        <h2 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                            Engineering{" "}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-violet)]">Intelligence.</span>
                         </h2>
                     </div>
 
-                    <div className="relative group perspective-[2000px] max-w-5xl mx-auto">
-                        {/* Decorative Corner Accents (HUD Style) */}
-                        <div className="absolute -top-6 -left-6 w-12 h-12 border-t-2 border-l-2 border-blue-500/30 rounded-tl-3xl group-hover:scale-110 transition-transform duration-700" />
-                        <div className="absolute -top-6 -right-6 w-12 h-12 border-t-2 border-r-2 border-blue-500/30 rounded-tr-3xl group-hover:scale-110 transition-transform duration-700" />
-                        <div className="absolute -bottom-6 -left-6 w-12 h-12 border-b-2 border-l-2 border-violet-500/30 rounded-bl-3xl group-hover:scale-110 transition-transform duration-700" />
-                        <div className="absolute -bottom-6 -right-6 w-12 h-12 border-b-2 border-r-2 border-violet-500/30 rounded-br-3xl group-hover:scale-110 transition-transform duration-700" />
-
-                        {/* Tech Logs - Side Decoration */}
-                        <div className="absolute -left-20 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-8 opacity-20 pointer-events-none">
-                            <div className="flex flex-col items-start gap-1 font-mono text-[8px] text-gray-900">
-                                <span>[LOAD_BIO_SEQ]</span>
-                                <div className="w-12 h-1 bg-blue-500/20" />
-                            </div>
-                            <div className="flex flex-col items-start gap-1 font-mono text-[8px] text-gray-900">
-                                <span>[NEURAL_SYNC]</span>
-                                <div className="w-8 h-1 bg-violet-500/20" />
-                            </div>
-                        </div>
+                    <div className="relative max-w-5xl mx-auto">
 
                         <div className="absolute -inset-8 bg-gradient-to-tr from-[var(--color-accent-blue)] to-[var(--color-accent-violet)] opacity-[0.02] blur-3xl group-hover:opacity-[0.05] transition-opacity duration-1000 pointer-events-none rounded-[4rem]" />
 
@@ -102,25 +78,25 @@ export default function About() {
                             {/* Technical Stats Reveal */}
                             <div className="mt-16 pt-12 border-t border-gray-100/50 flex flex-wrap justify-center gap-12 md:gap-24">
                                 <div className="text-center group/stat">
-                                    <div className="text-4xl md:text-5xl font-black font-scifi text-[var(--color-accent-blue)] mb-1">05+</div>
-                                    <div className="text-[10px] font-bold font-mono text-gray-400 uppercase tracking-widest">Years Experience</div>
+                                    <div className="text-4xl md:text-5xl font-bold text-[var(--color-accent-blue)] mb-1">5+</div>
+                                    <div className="text-xs font-medium text-gray-400">Years Experience</div>
                                 </div>
-                                <div className="text-center group/stat">
-                                    <div className="text-4xl md:text-5xl font-black font-scifi text-[var(--color-accent-violet)] mb-1">50+</div>
-                                    <div className="text-[10px] font-bold font-mono text-gray-400 uppercase tracking-widest">Models Deployed</div>
+                                <div className="text-center">
+                                    <div className="text-4xl md:text-5xl font-bold text-[var(--color-accent-violet)] mb-1">50+</div>
+                                    <div className="text-xs font-medium text-gray-400">Models Deployed</div>
                                 </div>
-                                <div className="text-center group/stat">
-                                    <div className="text-4xl md:text-5xl font-black font-scifi text-[var(--color-accent-pink)] mb-1">99%</div>
-                                    <div className="text-[10px] font-bold font-mono text-gray-400 uppercase tracking-widest">System Uptime</div>
+                                <div className="text-center">
+                                    <div className="text-4xl md:text-5xl font-bold text-[var(--color-accent-pink)] mb-1">99%</div>
+                                    <div className="text-xs font-medium text-gray-400">System Uptime</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Skills Header */}
-                    <div className="pt-20 space-y-4">
-                        <h3 className="text-2xl font-bold font-scifi uppercase tracking-[0.2em] text-gray-400">Technical Arsenal</h3>
-                        <div className="w-16 h-1 bg-blue-500/20 mx-auto" />
+                    <div className="pt-20 space-y-3">
+                        <span className="text-sm font-semibold text-[var(--color-accent-blue)] tracking-wide">Skills</span>
+                        <h3 className="text-3xl font-bold text-gray-900">What I Work With</h3>
                     </div>
 
                     {/* Skills Grid */}
@@ -136,10 +112,9 @@ export default function About() {
                                 <div className="text-[var(--color-accent-blue)] group-hover:text-[var(--color-accent-violet)] transition-all duration-500 transform scale-150 group-hover:rotate-[360deg] group-hover:scale-[1.7]">
                                     {skill.icon}
                                 </div>
-                                <div className="space-y-2 relative z-10">
-                                    <h4 className="text-lg font-black text-gray-900 font-scifi uppercase tracking-tight">{skill.name}</h4>
-                                    <div className="h-0.5 w-8 bg-gray-100 mx-auto group-hover:w-16 transition-all duration-500 group-hover:bg-[var(--color-accent-blue)]/30" />
-                                    <p className="text-[11px] text-gray-400 font-black uppercase tracking-widest font-mono">{skill.desc}</p>
+                                <div className="space-y-1.5 relative z-10">
+                                    <h4 className="text-base font-semibold text-gray-900">{skill.name}</h4>
+                                    <p className="text-xs text-gray-400">{skill.desc}</p>
                                 </div>
                             </motion.div>
                         ))}

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import GlitchText from "../ui/GlitchText";
 
 const navLinks = [
     { name: "About", href: "#about" },
@@ -31,38 +30,32 @@ export default function Navbar() {
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                 scrolled
-                    ? "bg-[var(--color-bg-primary)]/80 backdrop-blur-md border-b border-[var(--glass-border)] py-4 shadow-sm"
+                    ? "bg-white/90 backdrop-blur-md border-b border-gray-100 py-4 shadow-sm"
                     : "bg-transparent py-6"
             )}
         >
-            <div className="container mx-auto px-6 flex items-center justify-between relative">
-                {/* HUD Corners */}
-                <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--color-accent-cyan)] opacity-50" />
-                <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[var(--color-accent-cyan)] opacity-50" />
-                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[var(--color-accent-blue)] opacity-50" />
-                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--color-accent-blue)] opacity-50" />
-
-                <Link href="/" className="text-2xl font-bold font-scifi bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-cyan)] hover:opacity-80 transition-opacity pl-4">
-                    <GlitchText text="ARBAZ KHAN" />
+            <div className="container mx-auto px-6 flex items-center justify-between">
+                <Link href="/" className="text-xl font-bold text-gray-900 hover:text-[var(--color-accent-blue)] transition-colors tracking-tight">
+                    Arbaz Khan
                 </Link>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex space-x-8 pr-4">
+                <div className="hidden md:flex space-x-8">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="relative text-sm font-medium tracking-wider text-gray-600 hover:text-[var(--color-accent-blue)] transition-colors uppercase group font-mono"
+                            className="relative text-sm font-medium text-gray-600 hover:text-[var(--color-accent-blue)] transition-colors group"
                         >
                             {link.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[var(--color-accent-blue)] group-hover:w-full transition-all duration-300" />
+                            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--color-accent-blue)] group-hover:w-full transition-all duration-300 rounded-full" />
                         </Link>
                     ))}
                 </div>
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden text-gray-900 hover:text-[var(--color-accent-blue)] transition-colors pr-4"
+                    className="md:hidden text-gray-700 hover:text-[var(--color-accent-blue)] transition-colors"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
                     {mobileMenuOpen ? <X /> : <Menu />}
@@ -83,7 +76,7 @@ export default function Navbar() {
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className="text-lg font-medium text-gray-700 hover:text-[var(--color-accent-blue)] transition-colors uppercase font-mono"
+                                    className="text-lg font-medium text-gray-700 hover:text-[var(--color-accent-blue)] transition-colors"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     {link.name}

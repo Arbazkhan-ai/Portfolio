@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @layer base {
@@ -11,7 +11,6 @@
     --color-bg-secondary: #f4f4f5;
 
     --color-accent-cyan: #0866ff;
-    /* Changed to a corporate blue */
     --color-accent-blue: #0056D2;
     --color-accent-violet: #8B5CF6;
     --color-accent-pink: #ec4899;
@@ -21,13 +20,12 @@
     --color-text-secondary: #52525b;
 
     --glass-border: rgba(0, 0, 0, 0.08);
-    /* Darker border for visibility on white */
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-highlight: rgba(0, 0, 0, 0.03);
 
-    --font-display: 'Rajdhani', sans-serif;
+    --font-display: 'Inter', sans-serif;
     --font-body: 'Outfit', sans-serif;
-    --font-mono: 'Orbitron', monospace;
+    --font-mono: 'Inter', sans-serif;
   }
 }
 

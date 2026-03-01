@@ -34,7 +34,7 @@ export default function Home() {
 
         {/* Global Footer */}
         <footer className="py-6 border-t border-gray-100 bg-[var(--color-bg-primary)] text-center">
-          <p className="text-gray-500 text-sm font-mono">© {new Date().getFullYear()} ARBAZ KHAN // AI SYSTEMS ACTIVE</p>
+          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Arbaz Khan — AI Engineer & Developer</p>
         </footer>
       </div>
     </main>
