@@ -2,17 +2,45 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
+import Redis from 'ioredis';
 
 export const dynamic = 'force-dynamic';
 
 const dataFilePath = path.join(process.cwd(), 'src/data/messages.json');
 
-const getMessages = () => {
+const redis = process.env.REDIS_URL ? new Redis(process.env.REDIS_URL) : null;
+
+const getMessages = async () => {
+    if (redis) {
+        try {
+            const data = await redis.get('portfolio:contact_messages');
+            if (data) return JSON.parse(data);
+        } catch (error) {
+            console.error('[Contact] Redis GET error:', error);
+        }
+    }
+
     if (!fs.existsSync(dataFilePath)) return [];
     try {
         return JSON.parse(fs.readFileSync(dataFilePath, 'utf8'));
     } catch {
         return [];
+    }
+};
+
+const saveMessages = async (messages: any[]) => {
+    if (redis) {
+        try {
+            await redis.set('portfolio:contact_messages', JSON.stringify(messages));
+        } catch (error) {
+            console.error('[Contact] Redis SET error:', error);
+        }
+    }
+
+    try {
+        fs.writeFileSync(dataFilePath, JSON.stringify(messages, null, 4));
+    } catch (fsError) {
+        // expected failure on read-only environments
     }
 };
 
@@ -29,7 +57,7 @@ const createTransporter = () => {
 
 export async function GET() {
     try {
-        const messages = getMessages();
+        const messages = await getMessages();
         return NextResponse.json(messages);
     } catch {
         return NextResponse.json({ error: 'Failed to fetch messages' }, { status: 500 });
@@ -298,10 +326,9 @@ export async function POST(request: Request) {
             console.warn('[Contact] Email not sent: GMAIL_APP_PASSWORD not configured in .env.local');
         }
 
-        // ── 2. Save to JSON file (existing behavior) ──────────────────────────
-        // Wrapped in try-catch to prevent 500 errors on read-only environments like Vercel
+        // ── 2. Save to database (Redis + local fallback) ──────────────────────────
         try {
-            const messages = getMessages();
+            const messages = await getMessages();
             const newMessage = {
                 id: Date.now(),
                 name,
@@ -311,9 +338,9 @@ export async function POST(request: Request) {
                 read: false,
             };
             const updatedMessages = [newMessage, ...messages];
-            fs.writeFileSync(dataFilePath, JSON.stringify(updatedMessages, null, 4));
-        } catch (fsError) {
-            console.warn('[Contact] Could not write to messages.json (expected behaviour on Vercel/serverless environments).', fsError);
+            await saveMessages(updatedMessages);
+        } catch (dbError) {
+            console.warn('[Contact] Could not save message to database.', dbError);
         }
 
         return NextResponse.json({ success: true, message: 'Message sent successfully' });
