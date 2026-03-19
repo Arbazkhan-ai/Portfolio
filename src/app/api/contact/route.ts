@@ -44,20 +44,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
         }
 
-        // ── 1. Save to JSON file (existing behavior) ──────────────────────────
-        const messages = getMessages();
-        const newMessage = {
-            id: Date.now(),
-            name,
-            email,
-            message,
-            date: new Date().toISOString(),
-            read: false,
-        };
-        const updatedMessages = [newMessage, ...messages];
-        fs.writeFileSync(dataFilePath, JSON.stringify(updatedMessages, null, 4));
-
-        // ── 2. Send email notification via Gmail SMTP ──────────────────────────
+        // ── 1. Send email notification via Gmail SMTP ──────────────────────────
         const gmailUser = process.env.GMAIL_USER;
         const gmailPass = process.env.GMAIL_APP_PASSWORD;
         const receiver  = process.env.CONTACT_RECEIVER || 'arbazkhan140@gmail.com';
@@ -305,12 +292,28 @@ export async function POST(request: Request) {
 
                 console.log(`[Contact] Email sent for "${name}" <${email}>`);
             } catch (emailError) {
-                // Log the email error but don't fail the whole request —
-                // the message is already saved to the JSON file.
                 console.error('[Contact] Failed to send email:', emailError);
             }
         } else {
             console.warn('[Contact] Email not sent: GMAIL_APP_PASSWORD not configured in .env.local');
+        }
+
+        // ── 2. Save to JSON file (existing behavior) ──────────────────────────
+        // Wrapped in try-catch to prevent 500 errors on read-only environments like Vercel
+        try {
+            const messages = getMessages();
+            const newMessage = {
+                id: Date.now(),
+                name,
+                email,
+                message,
+                date: new Date().toISOString(),
+                read: false,
+            };
+            const updatedMessages = [newMessage, ...messages];
+            fs.writeFileSync(dataFilePath, JSON.stringify(updatedMessages, null, 4));
+        } catch (fsError) {
+            console.warn('[Contact] Could not write to messages.json (expected behaviour on Vercel/serverless environments).', fsError);
         }
 
         return NextResponse.json({ success: true, message: 'Message sent successfully' });
