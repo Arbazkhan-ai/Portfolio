@@ -1,7 +1,31 @@
 "use client";
 import React, { useState } from "react";
-import { Send, Mail, Linkedin, Github, Loader2 } from "lucide-react";
+import { Send, Linkedin, Github, Loader2, Mail, MessageCircle, CheckCircle, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
+const contactLinks = [
+    {
+        icon: <Github className="w-5 h-5" />,
+        label: "GitHub",
+        value: "github.com/Arbazkhan-ai",
+        href: "https://github.com/Arbazkhan-ai",
+        color: "var(--color-accent-blue)",
+    },
+    {
+        icon: <Linkedin className="w-5 h-5" />,
+        label: "LinkedIn",
+        value: "linkedin.com/in/arbaz-khan-3az",
+        href: "https://www.linkedin.com/in/arbaz-khan-3az/",
+        color: "var(--color-accent-violet)",
+    },
+    {
+        icon: <Mail className="w-5 h-5" />,
+        label: "Email",
+        value: "arbazkhan.ai@outlook.com",
+        href: "mailto:arbazkhan.ai@outlook.com",
+        color: "var(--color-accent-cyan)",
+    },
+];
 
 export default function Contact() {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -34,91 +58,157 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="py-24 bg-[var(--color-bg-primary)] relative overflow-hidden">
+        <section id="contact" className="py-28 bg-[var(--color-bg-primary)] relative overflow-hidden">
+
+            {/* Background glows */}
+            <div className="orb w-[400px] h-[400px] bg-[var(--color-accent-blue)] opacity-[0.05] bottom-0 right-0" />
+            <div className="orb w-[300px] h-[300px] bg-[var(--color-accent-violet)] opacity-[0.05] top-0 left-0" />
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="max-w-4xl mx-auto backdrop-blur-3xl bg-white border border-gray-100 rounded-3xl p-8 md:p-14 shadow-2xl shadow-[var(--color-accent-blue)]/5">
 
-                    <div className="flex flex-col md:flex-row gap-16">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-16 space-y-4"
+                >
+                    <span className="section-label">
+                        <MessageCircle className="w-3 h-3" />
+                        Get in Touch
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
+                        Let&apos;s Build{" "}
+                        <span className="text-gradient-aurora">Together</span>
+                    </h2>
+                    <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">
+                        Ready to deploy advanced AI solutions? Reach out and let&apos;s discuss your project.
+                    </p>
+                </motion.div>
 
-                        {/* Text Side */}
-                        <div className="md:w-5/12 space-y-8">
-                            <div>
-                                <h2 className="text-4xl font-bold font-scifi text-gray-900 mb-2 leading-none">
-                                    Iniate <br />
-                                    <span className="text-[var(--color-accent-blue)]">Protocol</span>
-                                </h2>
-                                <div className="h-1 w-12 bg-gray-200 mt-4" />
-                            </div>
+                {/* Main Grid */}
+                <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8">
 
-                            <p className="text-gray-600 text-sm leading-relaxed font-body">
-                                Ready to deploy advanced AI solutions? Transmit your project data and I will respond with a strategic imperative.
+                    {/* Left: Contact Info */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7 }}
+                        viewport={{ once: true }}
+                        className="lg:col-span-2 space-y-6"
+                    >
+                        <div className="p-7 rounded-2xl bg-[var(--color-bg-card)] border border-white/[0.06] space-y-3">
+                            <h3 className="text-xl font-bold text-white">Contact Details</h3>
+                            <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
+                                Whether you have a project idea or just want to connect — my inbox is always open.
                             </p>
-
-                            <div className="space-y-6 pt-4">
-
-                                <a href="https://github.com/Arbazkhan-ai" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-gray-600 hover:text-[var(--color-accent-blue)] transition-colors group">
-                                    <div className="p-3 rounded-full bg-gray-50 border border-gray-100 group-hover:bg-[var(--color-accent-blue)] group-hover:text-white transition-all">
-                                        <Github className="w-4 h-4" />
-                                    </div>
-                                    <span className="text-sm tracking-wide">github.com/arbazkhan</span>
-                                </a>
-                                <a href="https://www.linkedin.com/in/arbaz-khan-3az/" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-gray-600 hover:text-[var(--color-accent-blue)] transition-colors group">
-                                    <div className="p-3 rounded-full bg-gray-50 border border-gray-100 group-hover:bg-[var(--color-accent-blue)] group-hover:text-white transition-all">
-                                        <Linkedin className="w-4 h-4" />
-                                    </div>
-                                    <span className="text-sm tracking-wide">linkedin.com/in/arbazkhan</span>
-                                </a>
-                            </div>
                         </div>
 
-                        {/* Form Side */}
-                        <div className="md:w-7/12">
+                        {contactLinks.map((link, i) => (
+                            <motion.a
+                                key={i}
+                                href={link.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ delay: i * 0.1, duration: 0.5 }}
+                                viewport={{ once: true }}
+                                whileHover={{ x: 6 }}
+                                className="flex items-center gap-4 p-5 rounded-2xl bg-[var(--color-bg-card)] border border-white/[0.06] group transition-all duration-300"
+                                onMouseEnter={(e) => {
+                                    (e.currentTarget as HTMLElement).style.borderColor = `${link.color}30`;
+                                    (e.currentTarget as HTMLElement).style.boxShadow = `0 10px 30px ${link.color}10`;
+                                }}
+                                onMouseLeave={(e) => {
+                                    (e.currentTarget as HTMLElement).style.borderColor = '';
+                                    (e.currentTarget as HTMLElement).style.boxShadow = '';
+                                }}
+                            >
+                                <div
+                                    className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110"
+                                    style={{ color: link.color, background: `${link.color}15` }}
+                                >
+                                    {link.icon}
+                                </div>
+                                <div>
+                                    <p className="text-[var(--color-text-muted)] text-[10px] font-mono uppercase tracking-widest mb-0.5">{link.label}</p>
+                                    <p className="text-white text-sm font-medium group-hover:text-white transition-colors">{link.value}</p>
+                                </div>
+                            </motion.a>
+                        ))}
+                    </motion.div>
+
+                    {/* Right: Form */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7 }}
+                        viewport={{ once: true }}
+                        className="lg:col-span-3"
+                    >
+                        <div className="p-8 rounded-2xl bg-[var(--color-bg-card)] border border-white/[0.06] relative overflow-hidden">
+                            {/* Top gradient line */}
+                            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent-blue)] via-[var(--color-accent-violet)] to-[var(--color-accent-pink)]" />
+
+                            <h3 className="text-xl font-bold text-white mb-6">Send a Message</h3>
+
                             <form onSubmit={handleSubmit} className="space-y-5">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-mono text-gray-500 uppercase tracking-widest pl-1">Identity ID</label>
+                                        <label className="text-[10px] font-mono text-[var(--color-text-muted)] uppercase tracking-widest">Your Name</label>
                                         <input
                                             type="text"
                                             required
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[var(--color-accent-blue)] focus:bg-white transition-all text-sm font-body"
-                                            placeholder="ENTER NAME"
+                                            className="w-full bg-[var(--color-bg-primary)] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-blue)]/50 focus:shadow-[0_0_0_3px_rgba(79,141,255,0.1)] transition-all text-sm"
+                                            placeholder="Arbaz Khan"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-mono text-gray-500 uppercase tracking-widest pl-1">Comm Channel</label>
+                                        <label className="text-[10px] font-mono text-[var(--color-text-muted)] uppercase tracking-widest">Email Address</label>
                                         <input
                                             type="email"
                                             required
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[var(--color-accent-blue)] focus:bg-white transition-all text-sm font-body"
-                                            placeholder="ENTER EMAIL"
+                                            className="w-full bg-[var(--color-bg-primary)] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-blue)]/50 focus:shadow-[0_0_0_3px_rgba(79,141,255,0.1)] transition-all text-sm"
+                                            placeholder="hello@example.com"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-[10px] font-mono text-gray-500 uppercase tracking-widest pl-1">Transmission Data</label>
+                                    <label className="text-[10px] font-mono text-[var(--color-text-muted)] uppercase tracking-widest">Your Message</label>
                                     <textarea
                                         rows={5}
                                         required
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                        className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[var(--color-accent-blue)] focus:bg-white transition-all resize-none text-sm font-body"
-                                        placeholder="ENTER MESSAGE..."
-                                    ></textarea>
+                                        className="w-full bg-[var(--color-bg-primary)] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-blue)]/50 focus:shadow-[0_0_0_3px_rgba(79,141,255,0.1)] transition-all resize-none text-sm"
+                                        placeholder="Tell me about your project or idea..."
+                                    />
                                 </div>
 
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="w-full py-4 bg-[var(--color-accent-blue)] text-white font-bold font-scifi uppercase tracking-widest hover:bg-[var(--color-accent-violet)] transition-colors rounded-lg flex items-center justify-center gap-3 mt-4 shadow-lg shadow-blue-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
+                                    className="w-full py-4 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-3 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                                    style={{
+                                        background: `linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-violet))`,
+                                        boxShadow: `0 4px 20px rgba(79,141,255,0.25)`,
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        if (!loading) (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 30px rgba(79,141,255,0.4)`;
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 20px rgba(79,141,255,0.25)`;
+                                    }}
                                 >
                                     {loading ? <Loader2 className="animate-spin w-4 h-4" /> : <Send className="w-4 h-4" />}
-                                    {loading ? "Transmitting..." : "Transmit Data"}
+                                    {loading ? "Sending..." : "Send Message"}
                                 </button>
 
                                 <AnimatePresence>
@@ -127,9 +217,15 @@ export default function Contact() {
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0 }}
-                                            className="p-3 bg-green-50 text-green-700 text-sm rounded-lg text-center"
+                                            className="flex items-center gap-3 p-4 rounded-xl text-sm border"
+                                            style={{
+                                                color: "var(--color-accent-green)",
+                                                background: "rgba(34, 211, 238, 0.08)",
+                                                borderColor: "rgba(34, 211, 238, 0.2)",
+                                            }}
                                         >
-                                            Transmission successful. Protocol initiated.
+                                            <CheckCircle className="w-4 h-4 flex-shrink-0" />
+                                            Message sent! I&apos;ll get back to you shortly.
                                         </motion.div>
                                     )}
                                     {status === "error" && (
@@ -137,23 +233,22 @@ export default function Contact() {
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0 }}
-                                            className="p-3 bg-red-50 text-red-700 text-sm rounded-lg text-center"
+                                            className="flex items-center gap-3 p-4 rounded-xl text-sm border"
+                                            style={{
+                                                color: "var(--color-accent-pink)",
+                                                background: "rgba(244, 114, 182, 0.08)",
+                                                borderColor: "rgba(244, 114, 182, 0.2)",
+                                            }}
                                         >
-                                            Transmission failed. Check connection.
+                                            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                                            Something went wrong. Please try again or email directly.
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
                             </form>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
-            </div>
-
-            {/* Footer Minimal */}
-            <div className="absolute bottom-6 w-full text-center">
-                <p className="text-[10px] text-gray-400 font-mono tracking-widest">
-                    SYSTEM V2.0 // ALL RIGHTS RESERVED 2026
-                </p>
             </div>
         </section>
     );
