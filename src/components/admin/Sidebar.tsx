@@ -13,7 +13,7 @@ export function Sidebar() {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const res = await fetch('/api/contact');
+                const res = await fetch('/api/contact', { cache: 'no-store' });
                 const data = await res.json();
                 if (Array.isArray(data)) {
                     setMessageCount(data.length);

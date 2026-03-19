@@ -8,7 +8,8 @@ export const dynamic = 'force-dynamic';
 
 const dataFilePath = path.join(process.cwd(), 'src/data/messages.json');
 
-const redis = process.env.REDIS_URL ? new Redis(process.env.REDIS_URL) : null;
+const REDIS_URL = process.env.REDIS_URL || "redis://default:mUEAblVLWuhChepF6HjccsjdYgI5iOS1@redis-19610.c278.us-east-1-4.ec2.cloud.redislabs.com:19610";
+const redis = new Redis(REDIS_URL);
 
 const getMessages = async () => {
     if (redis) {

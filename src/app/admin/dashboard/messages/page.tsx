@@ -20,7 +20,7 @@ export default function MessagesDashboard() {
     const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
-        fetch('/api/contact')
+        fetch('/api/contact', { cache: 'no-store' })
             .then(res => res.json())
             .then(data => {
                 // Sort by date desc
