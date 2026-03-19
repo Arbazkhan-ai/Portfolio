@@ -24,9 +24,11 @@ export default function DashboardLayout({
     if (!isAuthenticated) return null;
 
     return (
-        <div className="min-h-screen bg-[#f8fafc] flex font-sans text-slate-900">
+        <div className="min-h-screen bg-[var(--color-bg-primary)] flex font-sans text-gray-100 overflow-hidden">
             <Sidebar />
-            <div className="flex-1 h-screen overflow-y-auto">
+            <div className="flex-1 h-screen overflow-y-auto relative z-10">
+                <div className="grid-bg"></div>
+                <div className="noise-overlay"></div>
                 {children}
             </div>
         </div>
