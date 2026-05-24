@@ -350,3 +350,20 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
     }
 }
+
+export async function DELETE(request: Request) {
+    try {
+        const { id } = await request.json();
+        if (!id) return NextResponse.json({ error: 'ID is required' }, { status: 400 });
+
+        const messages = await getMessages();
+        const updatedMessages = messages.filter((msg: any) => msg.id !== id);
+        
+        await saveMessages(updatedMessages);
+
+        return NextResponse.json({ success: true, message: 'Message deleted' });
+    } catch (error) {
+        console.error('[Contact] DELETE error:', error);
+        return NextResponse.json({ error: 'Failed to delete message' }, { status: 500 });
+    }
+}

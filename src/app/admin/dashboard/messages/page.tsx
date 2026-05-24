@@ -135,7 +135,25 @@ export default function MessagesDashboard() {
                                 </div>
                             </div>
 
-                            <button className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors">
+                            <button 
+                                onClick={async () => {
+                                    if(confirm('Are you sure you want to delete this message?')) {
+                                        try {
+                                            const res = await fetch('/api/contact', {
+                                                method: 'DELETE',
+                                                headers: { 'Content-Type': 'application/json' },
+                                                body: JSON.stringify({ id: selectedMessage.id })
+                                            });
+                                            if (res.ok) {
+                                                setMessages(messages.filter(m => m.id !== selectedMessage.id));
+                                                setSelectedMessage(null);
+                                            }
+                                        } catch (err) {
+                                            console.error('Failed to delete message', err);
+                                        }
+                                    }
+                                }}
+                                className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors">
                                 <Trash2 size={20} />
                             </button>
                         </div>
