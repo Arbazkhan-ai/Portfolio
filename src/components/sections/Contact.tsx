@@ -21,7 +21,7 @@ const contactLinks = [
     {
         icon: <Mail className="w-5 h-5" />,
         label: "Email",
-        value: "arbazkhan.ai@outlook.com",
+        value: "arbazkhanofficial140@gmail.com",
         href: "mailto:arbazkhanofficial140@gmail.com",
         color: "var(--color-accent-cyan)",
     },

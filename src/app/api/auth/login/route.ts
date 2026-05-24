@@ -4,7 +4,7 @@ export async function POST(request: Request) {
     try {
         const { email, password } = await request.json();
 
-        if (email === 'arbazjani8@gmail.com' && password === 'Arbazkhan@37447') {
+        if (email === 'arbazkhanofficial140@gmail.com' && password === 'Arbazkhan@37447') {
             // In a real app, generate a secure HTTP-only cookie or JWT token
             return NextResponse.json({ success: true, message: 'Authenticated' });
         } else {

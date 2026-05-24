@@ -76,7 +76,7 @@ export async function POST(request: Request) {
         // ── 1. Send email notification via Gmail SMTP ──────────────────────────
         const gmailUser = process.env.GMAIL_USER;
         const gmailPass = process.env.GMAIL_APP_PASSWORD;
-        const receiver  = process.env.CONTACT_RECEIVER || 'arbazkhan140@gmail.com';
+        const receiver  = process.env.CONTACT_RECEIVER || 'arbazkhanofficial140@gmail.com';
 
         if (gmailUser && gmailPass && gmailPass !== 'your_app_password_here') {
             try {
