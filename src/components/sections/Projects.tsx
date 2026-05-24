@@ -100,9 +100,10 @@ export default function Projects() {
                                         (e.currentTarget as HTMLElement).style.boxShadow = '';
                                     }}
                                 >
+                                    <a href={`/projects/${project.id}`} className="absolute inset-0 z-20" aria-label={`View details of ${project.title}`} />
                                     {/* Top gradient line */}
                                     <div
-                                        className="absolute top-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                        className="absolute top-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"
                                         style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }}
                                     />
 
@@ -187,7 +188,7 @@ export default function Projects() {
                                         )}
 
                                         {/* Action Row */}
-                                        <div className="pt-5 mt-auto flex items-center justify-between border-t border-white/[0.06]">
+                                        <div className="pt-5 mt-auto flex items-center justify-between border-t border-white/[0.06] relative z-30">
                                             <div className="flex gap-3">
                                                 {project.githubLink && (
                                                     <a
