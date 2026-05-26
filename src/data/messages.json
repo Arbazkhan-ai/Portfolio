@@ -1,5 +1,29 @@
 [
     {
+        "id": 1773930155995,
+        "name": "Local tester",
+        "email": "test@example.com",
+        "message": "Hello world",
+        "date": "2026-03-19T14:22:35.995Z",
+        "read": false
+    },
+    {
+        "id": 1773928628971,
+        "name": "Local tester",
+        "email": "test@example.com",
+        "message": "Hello world",
+        "date": "2026-03-19T13:57:08.971Z",
+        "read": false
+    },
+    {
+        "id": 1773928240468,
+        "name": "Redis Tester",
+        "email": "redis@example.com",
+        "message": "This is a test message to ensure Redis works!",
+        "date": "2026-03-19T13:50:40.468Z",
+        "read": false
+    },
+    {
         "id": 1773926831341,
         "name": "Tester",
         "email": "test@example.com",
