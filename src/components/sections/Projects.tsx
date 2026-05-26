@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Activity, Shield, Stethoscope, Search, Mic, Brain, HeartPulse, Code, Camera, Dumbbell, Shirt, TrendingUp, ArrowUpRight } from "lucide-react";
 import TiltCard from "../ui/TiltCard";
+import Link from "next/link";
 
 interface Project {
     id?: number;
@@ -100,7 +101,7 @@ export default function Projects() {
                                         (e.currentTarget as HTMLElement).style.boxShadow = '';
                                     }}
                                 >
-                                    <a href={`/projects/${project.id}`} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-20" aria-label={`View details of ${project.title}`} />
+                                    <Link href={`/projects/${project.id}`} scroll={true} className="absolute inset-0 z-20" aria-label={`View details of ${project.title}`} />
                                     {/* Top gradient line */}
                                     <div
                                         className="absolute top-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"
@@ -213,15 +214,14 @@ export default function Projects() {
                                                     </a>
                                                 )}
                                             </div>
-                                            <a
+                                            <Link
                                                 href={`/projects/${project.id}`}
-                                                target="_blank"
-                                                rel="noreferrer"
+                                                scroll={true}
                                                 className="flex items-center gap-1.5 text-[10px] font-mono font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0"
                                                 style={{ color: color }}
                                             >
                                                 VIEW PROJECT <ArrowUpRight className="w-3 h-3" />
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </motion.div>
