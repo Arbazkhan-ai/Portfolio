@@ -31,7 +31,7 @@ export default function Navbar() {
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
                 scrolled
-                    ? "backdrop-blur-xl border-b border-black/[0.07] py-3 shadow-[0_4px_30px_rgba(0,0,0,0.5)] bg-[rgba(4,7,17,0.85)]"
+                    ? "backdrop-blur-xl border-b border-black/[0.07] py-3 shadow-[0_4px_30px_rgba(0,0,0,0.05)] bg-[var(--glass-bg)]"
                     : "bg-transparent py-5"
             )}
         >
@@ -71,7 +71,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-3">
                     <a
                         href="#contact"
-                        className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-violet)] text-[var(--color-text-primary)] shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all duration-300"
+                        className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-violet)] text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all duration-300"
                     >
                         Hire Me
                     </a>
@@ -91,7 +91,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden border-t border-black/[0.06] overflow-hidden bg-[rgba(4,7,17,0.95)] backdrop-blur-xl"
+                        className="md:hidden border-t border-black/[0.06] overflow-hidden bg-[var(--glass-bg)] backdrop-blur-xl"
                     >
                         <div className="flex flex-col py-6 px-6 space-y-1">
                             {navLinks.map((link, i) => (
@@ -114,7 +114,7 @@ export default function Navbar() {
                             <div className="pt-4">
                                 <a
                                     href="#contact"
-                                    className="w-full flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold rounded-xl bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-violet)] text-[var(--color-text-primary)]"
+                                    className="w-full flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold rounded-xl bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-violet)] text-white"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     Hire Me
