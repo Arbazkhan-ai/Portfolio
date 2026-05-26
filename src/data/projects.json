@@ -98,5 +98,65 @@
             "Trading",
             "Mobile App"
         ]
+    },
+    {
+        "id": 7,
+        "title": "AI Emergency Trigger",
+        "category": "AI / System",
+        "description": "An emergency trigger system powered by AI to automatically alert and respond in critical situations.",
+        "link": "https://github.com/Arbazkhan-ai/ai-emergency-trigger",
+        "githubLink": "https://github.com/Arbazkhan-ai/ai-emergency-trigger",
+        "color": "var(--color-accent-blue)",
+        "image": "/globe.svg",
+        "tags": [
+            "AI",
+            "Emergency",
+            "System"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Sketch to 3D Model",
+        "category": "Computer Vision / 3D",
+        "description": "An AI tool that transforms 2D sketches into 3D models using Python and deep learning.",
+        "link": "https://github.com/Arbazkhan-ai/sketch-to-3d-model",
+        "githubLink": "https://github.com/Arbazkhan-ai/sketch-to-3d-model",
+        "color": "var(--color-accent-violet)",
+        "image": "/globe.svg",
+        "tags": [
+            "Python",
+            "3D Modeling",
+            "Computer Vision"
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Rambows Hands",
+        "category": "Computer Vision",
+        "description": "Hand tracking and gesture recognition project built with Python.",
+        "link": "https://github.com/Arbazkhan-ai/rambows-Hands",
+        "githubLink": "https://github.com/Arbazkhan-ai/rambows-Hands",
+        "color": "var(--color-accent-pink)",
+        "image": "/globe.svg",
+        "tags": [
+            "Python",
+            "Hand Tracking",
+            "Computer Vision"
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Cineverse",
+        "category": "Web Development",
+        "description": "A cinematic universe web application built using HTML and modern web technologies.",
+        "link": "https://github.com/Arbazkhan-ai/cineverse",
+        "githubLink": "https://github.com/Arbazkhan-ai/cineverse",
+        "color": "var(--color-accent-cyan)",
+        "image": "/globe.svg",
+        "tags": [
+            "HTML",
+            "Web Dev",
+            "UI/UX"
+        ]
     }
 ]
