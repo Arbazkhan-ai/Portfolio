@@ -173,7 +173,7 @@
         "link": "https://github.com/Arbazkhan-ai/ai-emergency-trigger",
         "githubLink": "https://github.com/Arbazkhan-ai/ai-emergency-trigger",
         "color": "var(--color-accent-blue)",
-        "image": "/file.svg",
+        "image": "/ai-emergency.png",
         "tags": [
             "AI",
             "Emergency",
@@ -199,7 +199,7 @@
         "link": "https://github.com/Arbazkhan-ai/sketch-to-3d-model",
         "githubLink": "https://github.com/Arbazkhan-ai/sketch-to-3d-model",
         "color": "var(--color-accent-violet)",
-        "image": "/file.svg",
+        "image": "/sketch-3d.png",
         "tags": [
             "Python",
             "3D Modeling",
@@ -225,7 +225,7 @@
         "link": "https://github.com/Arbazkhan-ai/rambows-Hands",
         "githubLink": "https://github.com/Arbazkhan-ai/rambows-Hands",
         "color": "var(--color-accent-pink)",
-        "image": "/file.svg",
+        "image": "/rambows-hands.png",
         "tags": [
             "Python",
             "Hand Tracking",
@@ -251,7 +251,7 @@
         "link": "https://github.com/Arbazkhan-ai/cineverse",
         "githubLink": "https://github.com/Arbazkhan-ai/cineverse",
         "color": "var(--color-accent-cyan)",
-        "image": "/file.svg",
+        "image": "/cineverse.png",
         "tags": [
             "HTML",
             "Web Dev",
