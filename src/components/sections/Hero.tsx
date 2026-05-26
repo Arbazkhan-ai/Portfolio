@@ -72,7 +72,7 @@ export default function Hero() {
                     {/* Main Headline */}
                     <motion.h1
                         variants={variants}
-                        className="text-6xl md:text-8xl font-bold tracking-tight leading-[1.0] text-white"
+                        className="text-6xl md:text-8xl font-bold tracking-tight leading-[1.0] text-[var(--color-text-primary)]"
                     >
                         {heroData.headlineHighlight}{" "}
                         <br className="hidden md:block" />
@@ -84,9 +84,9 @@ export default function Hero() {
                     {/* Subheadline */}
                     <motion.p variants={variants} className="text-lg md:text-xl text-[var(--color-text-secondary)] font-normal leading-relaxed max-w-2xl mx-auto">
                         {heroData.subheadlineStart}{" "}
-                        <span className="text-white font-medium border-b border-[var(--color-accent-blue)]/40 pb-0.5">{heroData.subheadlineHighlight1}</span>
+                        <span className="text-[var(--color-text-primary)] font-medium border-b border-[var(--color-accent-blue)]/40 pb-0.5">{heroData.subheadlineHighlight1}</span>
                         {" & "}
-                        <span className="text-white font-medium border-b border-[var(--color-accent-violet)]/40 pb-0.5">{heroData.subheadlineHighlight2}</span>.
+                        <span className="text-[var(--color-text-primary)] font-medium border-b border-[var(--color-accent-violet)]/40 pb-0.5">{heroData.subheadlineHighlight2}</span>.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -106,17 +106,17 @@ export default function Hero() {
                             href="https://github.com/Arbazkhan-ai"
                             target="_blank"
                             rel="noreferrer"
-                            className="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-white transition-colors text-sm"
+                            className="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors text-sm"
                         >
                             <Github className="w-4 h-4" />
                             GitHub
                         </a>
-                        <div className="w-px h-4 bg-white/10" />
+                        <div className="w-px h-4 bg-black/10" />
                         <a
                             href="https://www.linkedin.com/in/arbaz-khan-3az/"
                             target="_blank"
                             rel="noreferrer"
-                            className="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-white transition-colors text-sm"
+                            className="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors text-sm"
                         >
                             <Linkedin className="w-4 h-4" />
                             LinkedIn

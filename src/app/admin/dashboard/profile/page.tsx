@@ -97,7 +97,7 @@ export default function ProfileSettings() {
                     <button
                         onClick={handleSave}
                         disabled={saving}
-                        className="px-6 py-2 bg-[var(--color-accent-blue)] text-white rounded-lg flex items-center gap-2 hover:bg-blue-700 transition shadow-lg shadow-blue-500/20"
+                        className="px-6 py-2 bg-[var(--color-accent-blue)] text-[var(--color-text-primary)] rounded-lg flex items-center gap-2 hover:bg-blue-700 transition shadow-lg shadow-blue-500/20"
                     >
                         {saving ? <Loader2 className="animate-spin" size={18} /> : <Save size={18} />}
                         Save Changes
@@ -113,7 +113,7 @@ export default function ProfileSettings() {
 
                                 <label className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
                                     <input type="file" accept="image/*" className="hidden" onChange={handleAvatarUpload} />
-                                    {uploading ? <Loader2 className="animate-spin text-white" size={20} /> : <span className="text-xs text-white font-medium">Change</span>}
+                                    {uploading ? <Loader2 className="animate-spin text-[var(--color-text-primary)]" size={20} /> : <span className="text-xs text-[var(--color-text-primary)] font-medium">Change</span>}
                                 </label>
                             </div>
                             <div className="ml-4 mb-2">

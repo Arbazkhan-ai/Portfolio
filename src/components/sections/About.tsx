@@ -81,7 +81,7 @@ export default function About() {
                         <div className="relative group">
                             {/* Glowing border frame */}
                             <div className="absolute -inset-1 bg-gradient-to-br from-[var(--color-accent-blue)] via-[var(--color-accent-violet)] to-[var(--color-accent-pink)] rounded-3xl opacity-30 blur-sm group-hover:opacity-60 transition-opacity duration-500" />
-                            <div className="relative rounded-3xl overflow-hidden border border-white/[0.08] bg-[var(--color-bg-card)]">
+                            <div className="relative rounded-3xl overflow-hidden border border-black/[0.08] bg-[var(--color-bg-card)]">
                                 <img
                                     src={profile.avatar}
                                     alt={profile.name}
@@ -96,7 +96,7 @@ export default function About() {
                                 {/* Name badge */}
                                 <div className="absolute bottom-6 left-6 right-6">
                                     <div className="glass rounded-2xl px-5 py-4">
-                                        <h3 className="text-white font-bold text-xl">{profile.name}</h3>
+                                        <h3 className="text-[var(--color-text-primary)] font-bold text-xl">{profile.name}</h3>
                                         <p className="text-[var(--color-accent-blue)] text-sm font-mono">{profile.title}</p>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@ export default function About() {
                         viewport={{ once: true }}
                         className="flex flex-col justify-center space-y-8"
                     >
-                        <p className="text-2xl md:text-3xl font-semibold text-white leading-[1.5]">
+                        <p className="text-2xl md:text-3xl font-semibold text-[var(--color-text-primary)] leading-[1.5]">
                             {profile.bio}
                         </p>
 
@@ -134,7 +134,7 @@ export default function About() {
                         </ul>
 
                         {/* Stats */}
-                        <div className="grid grid-cols-3 gap-4 pt-4 border-t border-white/[0.06]">
+                        <div className="grid grid-cols-3 gap-4 pt-4 border-t border-black/[0.06]">
                             {[
                                 { value: "5+", label: "Years Exp.", color: "var(--color-accent-blue)" },
                                 { value: "50+", label: "Models Built", color: "var(--color-accent-violet)" },
@@ -146,7 +146,7 @@ export default function About() {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: i * 0.1 }}
                                     viewport={{ once: true }}
-                                    className="text-center p-4 rounded-2xl bg-[var(--color-bg-card)] border border-white/[0.06]"
+                                    className="text-center p-4 rounded-2xl bg-[var(--color-bg-card)] border border-black/[0.06]"
                                 >
                                     <div className="text-3xl font-bold mb-1" style={{ color: stat.color }}>{stat.value}</div>
                                     <div className="text-[var(--color-text-muted)] text-xs font-mono uppercase tracking-wide">{stat.label}</div>
@@ -166,7 +166,7 @@ export default function About() {
                 >
                     <div className="text-center space-y-3">
                         <span className="section-label">Core Expertise</span>
-                        <h3 className="text-3xl font-bold text-white mt-4">What I Work With</h3>
+                        <h3 className="text-3xl font-bold text-[var(--color-text-primary)] mt-4">What I Work With</h3>
                     </div>
 
                     {/* Skills Grid */}
@@ -179,7 +179,7 @@ export default function About() {
                                 transition={{ delay: index * 0.08, duration: 0.5 }}
                                 viewport={{ once: true }}
                                 whileHover={{ y: -8, scale: 1.02 }}
-                                className="group relative p-6 rounded-2xl bg-[var(--color-bg-card)] border border-white/[0.06] flex flex-col items-center text-center gap-4 overflow-hidden transition-all duration-300 cursor-default"
+                                className="group relative p-6 rounded-2xl bg-[var(--color-bg-card)] border border-black/[0.06] flex flex-col items-center text-center gap-4 overflow-hidden transition-all duration-300 cursor-default"
                                 style={{
                                     boxShadow: `0 0 0 0 ${skill.color}00`,
                                 }}
@@ -207,7 +207,7 @@ export default function About() {
                                 </div>
 
                                 <div className="space-y-1 relative z-10">
-                                    <h4 className="text-sm font-semibold text-white">{skill.name}</h4>
+                                    <h4 className="text-sm font-semibold text-[var(--color-text-primary)]">{skill.name}</h4>
                                     <p className="text-[10px] text-[var(--color-text-muted)] font-mono">{skill.desc}</p>
                                 </div>
                             </motion.div>

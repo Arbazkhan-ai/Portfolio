@@ -71,7 +71,7 @@ export default function Projects() {
                     className="flex flex-col items-center mb-20 space-y-4 text-center"
                 >
                     <span className="section-label">Portfolio</span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mt-4">
                         Selected{" "}
                         <span className="text-gradient-aurora">Works</span>
                     </h2>
@@ -91,7 +91,7 @@ export default function Projects() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.08, duration: 0.5 }}
                                     viewport={{ once: true }}
-                                    className="group relative bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl h-full flex flex-col overflow-hidden transition-all duration-500"
+                                    className="group relative bg-[var(--color-bg-card)] border border-black/[0.06] rounded-2xl h-full flex flex-col overflow-hidden transition-all duration-500"
                                     onMouseEnter={(e) => {
                                         (e.currentTarget as HTMLElement).style.borderColor = `${color}30`;
                                         (e.currentTarget as HTMLElement).style.boxShadow = `0 20px 60px ${color}12`;
@@ -160,7 +160,7 @@ export default function Projects() {
                                             {(index + 1).toString().padStart(2, '0')}
                                         </div>
 
-                                        <h3 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-[var(--color-text-primary)] transition-colors">
+                                        <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2 leading-snug group-hover:text-[var(--color-text-primary)] transition-colors">
                                             {project.title}
                                         </h3>
 
@@ -189,7 +189,7 @@ export default function Projects() {
                                         )}
 
                                         {/* Action Row */}
-                                        <div className="pt-5 mt-auto flex items-center justify-between border-t border-white/[0.06] relative z-30">
+                                        <div className="pt-5 mt-auto flex items-center justify-between border-t border-black/[0.06] relative z-30">
                                             <div className="flex gap-3">
                                                 {project.githubLink && (
                                                     <a
@@ -197,7 +197,7 @@ export default function Projects() {
                                                         target="_blank"
                                                         rel="noreferrer"
                                                         title="View on GitHub"
-                                                        className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/[0.05] text-[var(--color-text-muted)] hover:text-white hover:bg-white/10 transition-all"
+                                                        className="w-8 h-8 flex items-center justify-center rounded-lg bg-black/[0.05] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] hover:bg-black/10 transition-all"
                                                     >
                                                         <Github className="w-4 h-4" />
                                                     </a>
@@ -208,7 +208,7 @@ export default function Projects() {
                                                         target="_blank"
                                                         rel="noreferrer"
                                                         title="Live Demo"
-                                                        className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/[0.05] text-[var(--color-text-muted)] hover:text-white hover:bg-white/10 transition-all"
+                                                        className="w-8 h-8 flex items-center justify-center rounded-lg bg-black/[0.05] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] hover:bg-black/10 transition-all"
                                                     >
                                                         <ExternalLink className="w-4 h-4" />
                                                     </a>
@@ -242,7 +242,7 @@ export default function Projects() {
                         href="https://github.com/Arbazkhan-ai"
                         target="_blank"
                         rel="noreferrer"
-                        className="group flex items-center gap-3 px-8 py-4 rounded-2xl border border-white/[0.08] bg-[var(--color-bg-card)] hover:border-[var(--color-accent-blue)]/30 hover:bg-[var(--color-bg-card-hover)] hover:shadow-[0_8px_30px_rgba(79,141,255,0.15)] transition-all duration-400 font-mono text-sm font-bold text-[var(--color-text-secondary)] hover:text-white"
+                        className="group flex items-center gap-3 px-8 py-4 rounded-2xl border border-black/[0.08] bg-[var(--color-bg-card)] hover:border-[var(--color-accent-blue)]/30 hover:bg-[var(--color-bg-card-hover)] hover:shadow-[0_8px_30px_rgba(79,141,255,0.15)] transition-all duration-400 font-mono text-sm font-bold text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
                     >
                         <Github className="w-5 h-5 group-hover:rotate-12 transition-transform duration-500" />
                         VIEW ALL REPOSITORIES

@@ -70,7 +70,7 @@ export default function HeroEditor() {
                     <button
                         onClick={handleSave}
                         disabled={saving}
-                        className="px-6 py-2 bg-[var(--color-accent-blue)] text-white rounded-lg flex items-center gap-2 hover:bg-blue-700 transition"
+                        className="px-6 py-2 bg-[var(--color-accent-blue)] text-[var(--color-text-primary)] rounded-lg flex items-center gap-2 hover:bg-blue-700 transition"
                     >
                         {saving ? <Loader2 className="animate-spin" size={18} /> : <Save size={18} />}
                         Save Changes

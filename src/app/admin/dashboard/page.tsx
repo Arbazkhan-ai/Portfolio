@@ -19,7 +19,7 @@ export default function AdminDashboard() {
                     transition={{ duration: 0.5 }}
                 >
                     <div className="section-label mb-3">Control Panel</div>
-                    <h1 className="text-4xl font-bold text-white mb-2">Dashboard <span className="text-gradient-blue">Overview</span></h1>
+                    <h1 className="text-4xl font-bold text-[var(--color-text-primary)] mb-2">Dashboard <span className="text-gradient-blue">Overview</span></h1>
                     <p className="text-gray-400 flex items-center gap-2">
                         Welcome back, Commander. 
                         <span className="flex items-center gap-1 text-xs px-2 py-1 bg-green-500/10 text-green-400 rounded-full border border-green-500/20">
@@ -35,19 +35,19 @@ export default function AdminDashboard() {
                     transition={{ duration: 0.5 }}
                     className="flex items-center gap-4"
                 >
-                    <button className="p-3 glass rounded-full text-gray-300 hover:text-white hover:bg-white/5 transition-colors relative">
+                    <button className="p-3 glass rounded-full text-gray-300 hover:text-[var(--color-text-primary)] hover:bg-black/5 transition-colors relative">
                         <Bell size={20} />
                         <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full animate-pulse blur-[1px]"></span>
                         <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
                     </button>
-                    <button className="p-3 glass rounded-full text-gray-300 hover:text-white hover:bg-white/5 transition-colors">
+                    <button className="p-3 glass rounded-full text-gray-300 hover:text-[var(--color-text-primary)] hover:bg-black/5 transition-colors">
                         <Settings size={20} />
                     </button>
-                    <div className="h-10 w-px bg-white/10 mx-2"></div>
-                    <div className="flex items-center gap-3 glass pl-2 pr-4 py-2 rounded-full border border-white/5 cursor-pointer hover:bg-white/5 transition-colors">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold shadow-[0_0_15px_rgba(79,141,255,0.4)]">AK</div>
+                    <div className="h-10 w-px bg-black/10 mx-2"></div>
+                    <div className="flex items-center gap-3 glass pl-2 pr-4 py-2 rounded-full border border-black/5 cursor-pointer hover:bg-black/5 transition-colors">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-[var(--color-text-primary)] font-bold shadow-[0_0_15px_rgba(79,141,255,0.4)]">AK</div>
                         <div className="hidden md:block text-sm">
-                            <div className="font-semibold text-white">Arbaz Khan</div>
+                            <div className="font-semibold text-[var(--color-text-primary)]">Arbaz Khan</div>
                             <div className="text-xs text-blue-400">Admin</div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@ export default function AdminDashboard() {
             >
                 <div className="flex items-center justify-between mb-8">
                     <div>
-                        <h2 className="text-2xl font-bold text-white">Manage Content</h2>
+                        <h2 className="text-2xl font-bold text-[var(--color-text-primary)]">Manage Content</h2>
                         <p className="text-gray-400 text-sm mt-1">Select a module to edit your portfolio components.</p>
                     </div>
                 </div>
@@ -111,7 +111,7 @@ function StatCard({ title, value, change, highlight = false, icon, delay }: { ti
             transition={{ delay, duration: 0.5 }}
             whileHover={{ y: -5, scale: 1.02 }}
             className={`p-6 rounded-2xl glass-card card-hover-glow relative overflow-hidden group ${
-                highlight ? 'border-blue-500/30 card-glow-blue' : 'border-white/5'
+                highlight ? 'border-blue-500/30 card-glow-blue' : 'border-black/5'
             }`}
         >
             {highlight && (
@@ -119,7 +119,7 @@ function StatCard({ title, value, change, highlight = false, icon, delay }: { ti
             )}
             
             <div className="flex justify-between items-start mb-4 relative z-10">
-                <div className={`p-3 rounded-xl inline-flex ${highlight ? 'bg-blue-500/20 text-blue-400' : 'bg-white/5 text-gray-400 group-hover:text-white group-hover:bg-white/10 transition-colors'}`}>
+                <div className={`p-3 rounded-xl inline-flex ${highlight ? 'bg-blue-500/20 text-blue-400' : 'bg-black/5 text-gray-400 group-hover:text-[var(--color-text-primary)] group-hover:bg-black/10 transition-colors'}`}>
                     {icon}
                 </div>
                 <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${
@@ -133,7 +133,7 @@ function StatCard({ title, value, change, highlight = false, icon, delay }: { ti
             
             <div className="relative z-10">
                 <h3 className="text-sm font-medium text-gray-400 mb-1">{title}</h3>
-                <div className={`text-4xl font-bold font-display tracking-tight ${highlight ? 'text-white' : 'text-gray-100'}`}>
+                <div className={`text-4xl font-bold font-display tracking-tight ${highlight ? 'text-[var(--color-text-primary)]' : 'text-gray-100'}`}>
                     {value}
                 </div>
             </div>
@@ -143,16 +143,16 @@ function StatCard({ title, value, change, highlight = false, icon, delay }: { ti
 
 function DashboardCard({ href, icon, title, description, color }: { href: string, icon: React.ReactNode, title: string, description: string, color: 'blue' | 'purple' | 'pink' }) {
     const colorMap = {
-        blue: 'text-blue-400 bg-blue-500/10 group-hover:bg-blue-500 group-hover:text-white border-blue-500/20 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]',
-        purple: 'text-purple-400 bg-purple-500/10 group-hover:bg-purple-500 group-hover:text-white border-purple-500/20 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]',
-        pink: 'text-pink-400 bg-pink-500/10 group-hover:bg-pink-500 group-hover:text-white border-pink-500/20 group-hover:shadow-[0_0_20px_rgba(244,114,182,0.4)]'
+        blue: 'text-blue-400 bg-blue-500/10 group-hover:bg-blue-500 group-hover:text-[var(--color-text-primary)] border-blue-500/20 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]',
+        purple: 'text-purple-400 bg-purple-500/10 group-hover:bg-purple-500 group-hover:text-[var(--color-text-primary)] border-purple-500/20 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]',
+        pink: 'text-pink-400 bg-pink-500/10 group-hover:bg-pink-500 group-hover:text-[var(--color-text-primary)] border-pink-500/20 group-hover:shadow-[0_0_20px_rgba(244,114,182,0.4)]'
     };
     
     return (
         <Link href={href}>
             <motion.div 
                 whileHover={{ y: -5 }}
-                className={`group p-6 glass-card rounded-xl border border-white/5 hover:border-white/10 transition-all flex flex-col items-start gap-5 h-full relative overflow-hidden`}
+                className={`group p-6 glass-card rounded-xl border border-black/5 hover:border-black/10 transition-all flex flex-col items-start gap-5 h-full relative overflow-hidden`}
             >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 
@@ -161,9 +161,9 @@ function DashboardCard({ href, icon, title, description, color }: { href: string
                 </div>
                 
                 <div className="relative z-10 flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold text-gray-200 group-hover:text-white transition-colors mb-2 flex items-center justify-between">
+                    <h3 className="text-xl font-bold text-gray-200 group-hover:text-[var(--color-text-primary)] transition-colors mb-2 flex items-center justify-between">
                         {title}
-                        <ArrowRight size={18} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-white" />
+                        <ArrowRight size={18} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[var(--color-text-primary)]" />
                     </h3>
                     <p className="text-sm text-gray-400 leading-relaxed">
                         {description}

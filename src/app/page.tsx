@@ -16,7 +16,7 @@ export default function Home() {
   const [booted, setBooted] = useState(false);
 
   return (
-    <main className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] selection:bg-[var(--color-accent-blue)] selection:text-white">
+    <main className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] selection:bg-[var(--color-accent-blue)] selection:text-[var(--color-text-primary)]">
       <AnimatePresence>
         {!booted && <BootSequence onComplete={() => setBooted(true)} />}
       </AnimatePresence>
@@ -38,7 +38,7 @@ export default function Home() {
         <Contact />
 
         {/* Global Footer */}
-        <footer className="py-8 border-t border-white/[0.06] bg-[var(--color-bg-primary)] text-center relative overflow-hidden">
+        <footer className="py-8 border-t border-black/[0.06] bg-[var(--color-bg-primary)] text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-accent-blue)]/[0.03] to-transparent pointer-events-none" />
           <p className="text-[var(--color-text-muted)] text-sm font-mono relative z-10">
             © {new Date().getFullYear()} <span className="text-[var(--color-text-secondary)]">Arbaz Khan</span>

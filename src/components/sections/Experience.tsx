@@ -57,7 +57,7 @@ export default function Experience() {
                     className="flex flex-col items-center mb-20 text-center space-y-4"
                 >
                     <span className="section-label">Education & Certifications</span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mt-4">
                         My{" "}
                         <span className="text-gradient-violet">Background</span>
                     </h2>
@@ -87,7 +87,7 @@ export default function Experience() {
                             <div className="md:w-5/12 w-full">
                                 <motion.div
                                     whileHover={{ y: -4 }}
-                                    className="group relative rounded-2xl p-7 bg-[var(--color-bg-card)] border border-white/[0.06] transition-all duration-400 overflow-hidden"
+                                    className="group relative rounded-2xl p-7 bg-[var(--color-bg-card)] border border-black/[0.06] transition-all duration-400 overflow-hidden"
                                     style={{}}
                                     onMouseEnter={(e) => {
                                         (e.currentTarget as HTMLElement).style.borderColor = `${exp.color}30`;
@@ -120,7 +120,7 @@ export default function Experience() {
                                         </div>
                                     </div>
 
-                                    <h3 className="text-lg font-bold text-white mb-1 leading-snug">{exp.title}</h3>
+                                    <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-1 leading-snug">{exp.title}</h3>
                                     <p className="text-sm font-semibold mb-3" style={{ color: exp.color }}>{exp.company}</p>
                                     <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed mb-5">{exp.description}</p>
 

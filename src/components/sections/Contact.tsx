@@ -78,7 +78,7 @@ export default function Contact() {
                         <MessageCircle className="w-3 h-3" />
                         Get in Touch
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mt-4">
                         Let&apos;s Build{" "}
                         <span className="text-gradient-aurora">Together</span>
                     </h2>
@@ -98,8 +98,8 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="lg:col-span-2 space-y-6"
                     >
-                        <div className="p-7 rounded-2xl bg-[var(--color-bg-card)] border border-white/[0.06] space-y-3">
-                            <h3 className="text-xl font-bold text-white">Contact Details</h3>
+                        <div className="p-7 rounded-2xl bg-[var(--color-bg-card)] border border-black/[0.06] space-y-3">
+                            <h3 className="text-xl font-bold text-[var(--color-text-primary)]">Contact Details</h3>
                             <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
                                 Whether you have a project idea or just want to connect — my inbox is always open.
                             </p>
@@ -116,7 +116,7 @@ export default function Contact() {
                                 transition={{ delay: i * 0.1, duration: 0.5 }}
                                 viewport={{ once: true }}
                                 whileHover={{ x: 6 }}
-                                className="flex items-center gap-4 p-5 rounded-2xl bg-[var(--color-bg-card)] border border-white/[0.06] group transition-all duration-300"
+                                className="flex items-center gap-4 p-5 rounded-2xl bg-[var(--color-bg-card)] border border-black/[0.06] group transition-all duration-300"
                                 onMouseEnter={(e) => {
                                     (e.currentTarget as HTMLElement).style.borderColor = `${link.color}30`;
                                     (e.currentTarget as HTMLElement).style.boxShadow = `0 10px 30px ${link.color}10`;
@@ -134,7 +134,7 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <p className="text-[var(--color-text-muted)] text-[10px] font-mono uppercase tracking-widest mb-0.5">{link.label}</p>
-                                    <p className="text-white text-sm font-medium group-hover:text-white transition-colors">{link.value}</p>
+                                    <p className="text-[var(--color-text-primary)] text-sm font-medium group-hover:text-[var(--color-text-primary)] transition-colors">{link.value}</p>
                                 </div>
                             </motion.a>
                         ))}
@@ -148,11 +148,11 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="lg:col-span-3"
                     >
-                        <div className="p-8 rounded-2xl bg-[var(--color-bg-card)] border border-white/[0.06] relative overflow-hidden">
+                        <div className="p-8 rounded-2xl bg-[var(--color-bg-card)] border border-black/[0.06] relative overflow-hidden">
                             {/* Top gradient line */}
                             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-accent-blue)] via-[var(--color-accent-violet)] to-[var(--color-accent-pink)]" />
 
-                            <h3 className="text-xl font-bold text-white mb-6">Send a Message</h3>
+                            <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-6">Send a Message</h3>
 
                             <form onSubmit={handleSubmit} className="space-y-5">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -163,7 +163,7 @@ export default function Contact() {
                                             required
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="w-full bg-[var(--color-bg-primary)] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-blue)]/50 focus:shadow-[0_0_0_3px_rgba(79,141,255,0.1)] transition-all text-sm"
+                                            className="w-full bg-[var(--color-bg-primary)] border border-black/[0.08] rounded-xl px-4 py-3 text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-blue)]/50 focus:shadow-[0_0_0_3px_rgba(79,141,255,0.1)] transition-all text-sm"
                                             placeholder="Arbaz Khan"
                                         />
                                     </div>
@@ -174,7 +174,7 @@ export default function Contact() {
                                             required
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full bg-[var(--color-bg-primary)] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-blue)]/50 focus:shadow-[0_0_0_3px_rgba(79,141,255,0.1)] transition-all text-sm"
+                                            className="w-full bg-[var(--color-bg-primary)] border border-black/[0.08] rounded-xl px-4 py-3 text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-blue)]/50 focus:shadow-[0_0_0_3px_rgba(79,141,255,0.1)] transition-all text-sm"
                                             placeholder="hello@example.com"
                                         />
                                     </div>
@@ -187,7 +187,7 @@ export default function Contact() {
                                         required
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                        className="w-full bg-[var(--color-bg-primary)] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-blue)]/50 focus:shadow-[0_0_0_3px_rgba(79,141,255,0.1)] transition-all resize-none text-sm"
+                                        className="w-full bg-[var(--color-bg-primary)] border border-black/[0.08] rounded-xl px-4 py-3 text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-blue)]/50 focus:shadow-[0_0_0_3px_rgba(79,141,255,0.1)] transition-all resize-none text-sm"
                                         placeholder="Tell me about your project or idea..."
                                     />
                                 </div>
@@ -195,7 +195,7 @@ export default function Contact() {
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="w-full py-4 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-3 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                                    className="w-full py-4 rounded-xl font-bold text-sm text-[var(--color-text-primary)] flex items-center justify-center gap-3 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
                                     style={{
                                         background: `linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-violet))`,
                                         boxShadow: `0 4px 20px rgba(79,141,255,0.25)`,

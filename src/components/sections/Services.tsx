@@ -62,7 +62,7 @@ export default function Services() {
                     <span className="section-label" style={{ color: "var(--color-accent-violet)", borderColor: "rgba(168,85,247,0.3)", background: "rgba(168,85,247,0.08)" }}>
                         Capabilities
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mt-4">
                         Technical{" "}
                         <span className="text-gradient-violet">Arsenals</span>
                     </h2>
@@ -81,7 +81,7 @@ export default function Services() {
                             transition={{ delay: idx * 0.1, duration: 0.5 }}
                             viewport={{ once: true }}
                             whileHover={{ y: -6 }}
-                            className="group relative p-7 rounded-2xl bg-[var(--color-bg-card)] border border-white/[0.06] overflow-hidden transition-all duration-400 cursor-default"
+                            className="group relative p-7 rounded-2xl bg-[var(--color-bg-card)] border border-black/[0.06] overflow-hidden transition-all duration-400 cursor-default"
                             onMouseEnter={(e) => {
                                 (e.currentTarget as HTMLElement).style.borderColor = `${service.color}30`;
                                 (e.currentTarget as HTMLElement).style.boxShadow = `0 20px 60px ${service.color}10`;
@@ -119,7 +119,7 @@ export default function Services() {
                                 {service.icon}
                             </div>
 
-                            <h3 className="text-lg font-bold text-white mb-3 group-hover:translate-x-1 transition-transform duration-300">
+                            <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-3 group-hover:translate-x-1 transition-transform duration-300">
                                 {service.title}
                             </h3>
 

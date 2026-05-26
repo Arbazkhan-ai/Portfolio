@@ -137,7 +137,7 @@ export default function ProjectsDashboard() {
                     </div>
                     <button
                         onClick={() => openModal()}
-                        className="px-6 py-2 bg-[var(--color-accent-blue)] text-white rounded-lg flex items-center gap-2 hover:bg-blue-700 transition shadow-lg shadow-blue-500/20"
+                        className="px-6 py-2 bg-[var(--color-accent-blue)] text-[var(--color-text-primary)] rounded-lg flex items-center gap-2 hover:bg-blue-700 transition shadow-lg shadow-blue-500/20"
                     >
                         <Plus size={18} />
                         New Project
@@ -310,7 +310,7 @@ export default function ProjectsDashboard() {
                                     <button type="button" onClick={closeModal} className="px-6 py-2 text-gray-600 font-medium hover:bg-gray-100 rounded-lg transition-colors">Cancel</button>
                                     <button
                                         type="submit"
-                                        className="px-6 py-2 bg-[var(--color-accent-blue)] text-white font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20"
+                                        className="px-6 py-2 bg-[var(--color-accent-blue)] text-[var(--color-text-primary)] font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20"
                                     >
                                         {currentProject ? 'Update Project' : 'Create Project'}
                                     </button>

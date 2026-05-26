@@ -32,7 +32,7 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section className="py-28 bg-[var(--color-bg-primary)] border-t border-white/[0.05] relative overflow-hidden">
+        <section className="py-28 bg-[var(--color-bg-primary)] border-t border-black/[0.05] relative overflow-hidden">
 
             {/* Background decor */}
             <div className="orb w-[600px] h-[400px] bg-[var(--color-accent-blue)] opacity-[0.03] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
@@ -48,7 +48,7 @@ export default function Testimonials() {
                     className="flex flex-col items-center mb-16 text-center space-y-4"
                 >
                     <span className="section-label">Testimonials</span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mt-4">
                         Client{" "}
                         <span className="text-gradient-blue">Validation</span>
                     </h2>
@@ -66,7 +66,7 @@ export default function Testimonials() {
                             transition={{ delay: i * 0.15, duration: 0.6 }}
                             viewport={{ once: true }}
                             whileHover={{ y: -6 }}
-                            className="group relative p-7 rounded-2xl bg-[var(--color-bg-card)] border border-white/[0.06] overflow-hidden transition-all duration-400"
+                            className="group relative p-7 rounded-2xl bg-[var(--color-bg-card)] border border-black/[0.06] overflow-hidden transition-all duration-400"
                             onMouseEnter={(e) => {
                                 (e.currentTarget as HTMLElement).style.borderColor = `${t.color}30`;
                                 (e.currentTarget as HTMLElement).style.boxShadow = `0 20px 60px ${t.color}10`;
@@ -102,20 +102,20 @@ export default function Testimonials() {
                             </div>
 
                             {/* Quote */}
-                            <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed mb-6 italic group-hover:text-white/80 transition-colors duration-300">
+                            <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed mb-6 italic group-hover:text-[var(--color-text-primary)]/80 transition-colors duration-300">
                                 &ldquo;{t.quote}&rdquo;
                             </p>
 
                             {/* Author */}
-                            <div className="flex items-center gap-3 pt-5 border-t border-white/[0.06]">
+                            <div className="flex items-center gap-3 pt-5 border-t border-black/[0.06]">
                                 <div
-                                    className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold text-white flex-shrink-0"
+                                    className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold text-[var(--color-text-primary)] flex-shrink-0"
                                     style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}80)` }}
                                 >
                                     {t.author.charAt(0)}
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-semibold text-sm">{t.author}</h4>
+                                    <h4 className="text-[var(--color-text-primary)] font-semibold text-sm">{t.author}</h4>
                                     <p className="text-[var(--color-text-muted)] text-xs font-mono">
                                         {t.role} · {t.company}
                                     </p>
