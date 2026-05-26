@@ -46,7 +46,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ id:
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 shrink-0 mt-4 md:mt-0">
                         {project.githubLink && (
-                            <a href={project.githubLink} target="_blank" rel="noreferrer" className="group flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-[#111] hover:bg-[#1a1a1a] border border-black/[0.1] hover:border-black/[0.2] text-[var(--color-text-primary)] transition-all shadow-xl font-medium">
+                            <a href={project.githubLink} target="_blank" rel="noreferrer" className="group flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-[var(--color-bg-card)] hover:bg-black/[0.03] border border-black/[0.1] hover:border-black/[0.2] text-[var(--color-text-primary)] transition-all shadow-xl font-medium">
                                 <Github size={20} className="group-hover:rotate-12 transition-transform" /> 
                                 <span>Source Code</span>
                             </a>
