@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -12,6 +12,21 @@ const navLinks = [
     { name: "Services", href: "#services" },
     { name: "Contact", href: "#contact" },
 ];
+
+const LogoSVG = ({ className }: { className?: string }) => (
+    <svg 
+        className={className} 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path d="M12 3L4.5 20H8.5L10.5 15H13.5L15.5 20H19.5L12 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.5 15H13.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="3" r="2" fill="currentColor"/>
+        <circle cx="4.5" cy="20" r="1.5" fill="currentColor"/>
+        <circle cx="19.5" cy="20" r="1.5" fill="currentColor"/>
+    </svg>
+);
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -39,7 +54,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2.5 group">
                     <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--color-accent-blue)] to-[var(--color-accent-violet)] flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-shadow">
-                        <Zap className="w-4 h-4 text-[var(--color-text-primary)]" fill="currentColor" />
+                        <LogoSVG className="w-4 h-4 text-[var(--color-text-primary)]" />
                     </div>
                     <span className="text-lg font-bold text-[var(--color-text-primary)] tracking-tight font-display group-hover:text-[var(--color-accent-blue)] transition-colors">
                         Arbaz<span className="text-[var(--color-accent-blue)]">.</span>
