@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Activity, Shield, Stethoscope, Search, Mic, Brain, HeartPulse, Code, Camera, Dumbbell, Shirt, TrendingUp, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Github, Activity, Shield, Stethoscope, Search, Mic, Brain, HeartPulse, Code, Camera, Dumbbell, Shirt, TrendingUp, ArrowUpRight, Bot, Workflow } from "lucide-react";
 import TiltCard from "../ui/TiltCard";
 import Link from "next/link";
 
@@ -19,6 +19,8 @@ interface Project {
 
 const getIcon = (category: string) => {
     const cat = category.toLowerCase();
+    if (cat.includes("agent") || cat.includes("bot") || cat.includes("langgraph")) return <Bot className="w-5 h-5" />;
+    if (cat.includes("lead") || cat.includes("flow") || cat.includes("pipeline") || cat.includes("full-stack")) return <Workflow className="w-5 h-5" />;
     if (cat.includes("vision") || cat.includes("detection")) return <Camera className="w-5 h-5" />;
     if (cat.includes("nlp") || cat.includes("language") || cat.includes("voice")) return <Mic className="w-5 h-5" />;
     if (cat.includes("health") || cat.includes("medical")) return <Stethoscope className="w-5 h-5" />;

@@ -2,15 +2,81 @@ import json
 
 data = [
     {
+        "id": 11,
+        "title": "LeadsFlow AI",
+        "category": "Agentic AI / Full-Stack",
+        "description": "Autonomous B2B lead generation and deal-closing platform. Features intelligent niche/location lead discovery, automated website scraping, AI cold email personalization, objection-handling negotiation loop, and an interactive Kanban CRM pipeline.",
+        "link": "https://github.com/Arbazkhan-ai/Lead-Finder",
+        "githubLink": "https://github.com/Arbazkhan-ai/Lead-Finder",
+        "color": "var(--color-accent-green)",
+        "image": "/leadsflow-ai.png",
+        "tags": [
+            "Agentic AI",
+            "Next.js/React",
+            "Node.js",
+            "Web Scraping",
+            "Autonomous CRM",
+            "B2B SaaS"
+        ],
+        "details": {
+            "problem": "B2B lead generation and sales outreach is manually exhausting and prone to drop-off. Sales reps spend dozens of hours searching directories, manually extracting contact info from websites, writing repetitive cold emails, and losing track of client replies across disparate tools.",
+            "whyIUsedThis": "I built LeadsFlow AI with a high-performance full-stack architecture pairing React/Vite on the client with a modular Node.js/Express backend. I engineered an autonomous AI reasoning loop that classifies inbound lead responses into specific intents (pricing inquiry, budget objection, trust barrier, booking request) and autonomously drafts context-aware counter-responses. The system features deep website crawling to extract verified emails and phone numbers, integrated with an interactive Kanban pipeline board for real-time deal stage tracking.",
+            "features": [
+                "Autonomous lead discovery engine querying real businesses by niche and geolocation",
+                "Deep website crawler parsing homepages, team, and contact routes for verified emails & phones",
+                "AI cold email generator creating hyper-personalized outreach based on prospect meta-data",
+                "Self-directed objection handling loop with automated counter-arguments and deal closing logic",
+                "Visual Kanban CRM pipeline tracking deal stages from New Lead to Closed Won",
+                "Interactive Sandbox Simulator to test and preview AI negotiation responses in real-time"
+            ]
+        }
+    },
+    {
+        "id": 12,
+        "title": "Practical Agentic AI Systems",
+        "category": "Multi-Agent AI / LangGraph",
+        "description": "Production-grade collection of Agentic AI workflows and multi-agent architectures. Features LangGraph multi-query market intelligence research agents, an autonomous plan-code-test-review coding loop in an isolated sandbox, grounded executive research synthesizers, and multi-modal PDF RAG pipelines.",
+        "link": "https://github.com/Arbazkhan-ai/Practical-Agentic-AI-projects-using-LangChain-LangGraph-RAG-LLMs-and-AI-Agents.",
+        "githubLink": "https://github.com/Arbazkhan-ai/Practical-Agentic-AI-projects-using-LangChain-LangGraph-RAG-LLMs-and-AI-Agents.",
+        "color": "var(--color-accent-violet)",
+        "image": "/agentic-ai.png",
+        "tags": [
+            "LangGraph",
+            "LangChain",
+            "Multi-Agent",
+            "RAG",
+            "Python",
+            "Local LLMs",
+            "Gemini"
+        ],
+        "details": {
+            "problem": "Single-prompt LLMs struggle with complex multi-step reasoning, real-world fact verification, hallucinations, and autonomous software engineering tasks. Modern enterprise AI requires deterministic state machines, specialized collaborating agents, and self-healing execution loops.",
+            "whyIUsedThis": "I designed this suite using LangGraph and LangChain for cyclical graph execution, human-in-the-loop controls, and robust state persistence. By orchestrating specialized agent nodes (Architect Planner, Coder, Test Sandbox Executor, and Reviewer), the systems execute autonomous feedback loops where failed unit tests trigger code iterations until solutions pass. I leveraged Google Gemini and local Ollama models (Gemma 3) alongside ChromaDB vector storage for grounded, privacy-preserving multi-modal retrieval.",
+            "features": [
+                "Market Intelligence Agent with 6-tier source quality hierarchy & automated 21-section PDF generation",
+                "Autonomous Coding Agent with Plan-Code-Test-Review loop running in isolated execution sandboxes",
+                "Grounded AI Research Agent with automated query decomposition and web citation synthesis",
+                "Hands-free continuous conversational voice buddy ('TalkWithLeo') with animated avatar & fluency metrics",
+                "End-to-end PDF RAG pipeline with semantic chunking, ChromaDB vector indexing, and grounded Q&A"
+            ]
+        }
+    },
+    {
         "id": 1,
         "title": "Helmet Detection AI",
         "category": "Computer Vision",
-        "description": "Real-time Helmet Detection system using Deep Learning and YOLOv8. Detects helmets on people in images, videos, and live camera feeds — making workplaces and safety monitoring smarter and automated.",
+        "description": "Real-time Helmet Detection system using Deep Learning and YOLOv8. Detects helmets on people in images, videos, and live camera feeds \u2014 making workplaces and safety monitoring smarter and automated.",
         "link": "https://github.com/Arbazkhan-ai/Helmet-Detection-Using-Deep-learning-and-YOLO",
         "githubLink": "https://github.com/Arbazkhan-ai/Helmet-Detection-Using-Deep-learning-and-YOLO",
         "color": "var(--color-accent-cyan)",
         "image": "/helmet-detection.png",
-        "tags": ["YOLOv8", "Deep Learning", "Python", "Jupyter", "Safety AI"],
+        "tags": [
+            "YOLOv8",
+            "Deep Learning",
+            "Python",
+            "Jupyter",
+            "Safety AI"
+        ],
         "details": {
             "problem": "Industrial workplaces face severe safety hazards when workers fail to wear protective helmets. Manual monitoring is inefficient, prone to human error, and impossible to scale across large construction or manufacturing sites.",
             "whyIUsedThis": "I chose YOLOv8 for its state-of-the-art real-time object detection capabilities. Unlike older architectures like Faster R-CNN, YOLO provides the perfect balance between high accuracy and real-time inference speed, which is critical for live camera feeds. Python and Jupyter Notebooks were used for rapid prototyping, data augmentation, and model training due to their massive ecosystem of computer vision libraries (OpenCV, PyTorch).",
@@ -32,7 +98,12 @@ data = [
         "githubLink": "https://github.com/Arbazkhan-ai/NGAI-Cricket-Computer-Vision",
         "color": "var(--color-accent-violet)",
         "image": "/cricket-vision.png",
-        "tags": ["Computer Vision", "TypeScript", "Ball Tracking", "Sports AI"],
+        "tags": [
+            "Computer Vision",
+            "TypeScript",
+            "Ball Tracking",
+            "Sports AI"
+        ],
         "details": {
             "problem": "Professional cricket analysis systems (like Hawk-Eye) are incredibly expensive and require specialized multi-camera setups. Amateur and semi-pro teams lack access to advanced analytics like ball tracking and LBW predictions.",
             "whyIUsedThis": "I used a custom computer vision pipeline leveraging deep learning to track the high-speed motion of a cricket ball from standard video feeds. TypeScript was used to build the front-end interface, ensuring a robust, type-safe, and highly interactive dashboard where coaches can analyze the trajectory data in real-time.",
@@ -54,7 +125,12 @@ data = [
         "githubLink": "https://github.com/Arbazkhan-ai/Batsman-Pose-Detection-Using-MediaPipe",
         "color": "var(--color-accent-blue)",
         "image": "/pose-detection.png",
-        "tags": ["MediaPipe", "Python", "Pose Estimation", "Biomechanics"],
+        "tags": [
+            "MediaPipe",
+            "Python",
+            "Pose Estimation",
+            "Biomechanics"
+        ],
         "details": {
             "problem": "Cricket batsmen struggle to self-correct their stances and biomechanical flaws without a professional coach. Traditional video analysis requires manual frame-by-frame review, which is tedious and lacks quantitative metrics.",
             "whyIUsedThis": "Google MediaPipe was the perfect choice because it provides blazingly fast, out-of-the-box pose estimation tracking 33 3D landmarks without requiring heavy GPU compute. Python facilitated the rapid calculation of joint angles and biomechanical metrics, allowing me to build algorithms that detect flaws like incorrect backlift or poor foot movement.",
@@ -76,7 +152,13 @@ data = [
         "githubLink": "https://github.com/Arbazkhan-ai/Fabric-Detection-and-Flutter-app",
         "color": "var(--color-accent-pink)",
         "image": "/fabric-detection.png",
-        "tags": ["Flutter", "HTML", "Deep Learning", "Mobile AI", "Quality Control"],
+        "tags": [
+            "Flutter",
+            "HTML",
+            "Deep Learning",
+            "Mobile AI",
+            "Quality Control"
+        ],
         "details": {
             "problem": "Quality control in textile manufacturing is traditionally a manual, labor-intensive process. Human inspectors get fatigued, leading to missed defects, production delays, and material waste.",
             "whyIUsedThis": "I built a deep learning model to accurately classify microscopic fabric defects. For the user interface, I chose Flutter. Flutter allowed me to compile a beautiful, native-feeling app for both iOS and Android from a single codebase. It provides the seamless integration needed to run AI inferences on the edge using the smartphone's camera.",
@@ -98,7 +180,13 @@ data = [
         "githubLink": "https://github.com/Arbazkhan-ai/voice-sentiment-analysis-ai",
         "color": "var(--color-accent-cyan)",
         "image": "/voice-sentiment.png",
-        "tags": ["NLP", "Python", "Jupyter", "Audio AI", "Sentiment Analysis"],
+        "tags": [
+            "NLP",
+            "Python",
+            "Jupyter",
+            "Audio AI",
+            "Sentiment Analysis"
+        ],
         "details": {
             "problem": "Text-based sentiment analysis misses a crucial element of human communication: tone of voice. Customer service centers need a way to detect customer frustration or satisfaction directly from audio calls.",
             "whyIUsedThis": "I utilized Python's rich audio processing ecosystem (like Librosa) to extract Mel-frequency cepstral coefficients (MFCCs) and pitch variations. These features were then fed into a Deep Learning NLP/Audio model. Jupyter Notebooks were essential here for visualizing audio waveforms and iteratively tuning the neural network architecture.",
@@ -120,7 +208,13 @@ data = [
         "githubLink": "https://github.com/Arbazkhan-ai/Master-pip-Vibe-coding",
         "color": "var(--color-accent-violet)",
         "image": "/master-pip.png",
-        "tags": ["Flutter", "Dart", "FinTech", "Trading", "Mobile App"],
+        "tags": [
+            "Flutter",
+            "Dart",
+            "FinTech",
+            "Trading",
+            "Mobile App"
+        ],
         "details": {
             "problem": "Forex traders often struggle with rapid risk calculation. Calculating pip values, lot sizes, and potential profit/loss across different currency pairs under pressure leads to poor risk management and blown accounts.",
             "whyIUsedThis": "Flutter and Dart were the perfect combination for this FinTech app. Flutter's UI engine allowed me to create a highly responsive, premium dark-mode interface with smooth animations that traders love. Dart's strong typing ensures precision in financial calculations where floating-point errors are unacceptable.",
@@ -141,8 +235,12 @@ data = [
         "link": "https://github.com/Arbazkhan-ai/ai-emergency-trigger",
         "githubLink": "https://github.com/Arbazkhan-ai/ai-emergency-trigger",
         "color": "var(--color-accent-blue)",
-        "image": "/file.svg",
-        "tags": ["AI", "Emergency", "System"],
+        "image": "/ai-emergency.png",
+        "tags": [
+            "AI",
+            "Emergency",
+            "System"
+        ],
         "details": {
             "problem": "In critical emergencies, every second counts. Traditional alarm systems require manual activation, which is often impossible if the victim is incapacitated or under immediate threat.",
             "whyIUsedThis": "I utilized advanced AI anomaly detection algorithms to monitor environmental signals (sound, motion, and visual cues). By processing these inputs locally, the system can instantly trigger alerts without relying on a human intermediary. This ensures zero latency in dispatching SOS signals.",
@@ -163,8 +261,12 @@ data = [
         "link": "https://github.com/Arbazkhan-ai/sketch-to-3d-model",
         "githubLink": "https://github.com/Arbazkhan-ai/sketch-to-3d-model",
         "color": "var(--color-accent-violet)",
-        "image": "/file.svg",
-        "tags": ["Python", "3D Modeling", "Computer Vision"],
+        "image": "/sketch-3d.png",
+        "tags": [
+            "Python",
+            "3D Modeling",
+            "Computer Vision"
+        ],
         "details": {
             "problem": "3D modeling is an incredibly steep learning curve. Designers and game developers spend hours converting conceptual 2D sketches into structural 3D meshes using complex software like Blender or Maya.",
             "whyIUsedThis": "I leveraged Python alongside state-of-the-art Generative AI and Computer Vision frameworks. Python's integration with PyTorch allowed me to implement diffusion models capable of inferring depth and geometry from flat, hand-drawn lines, bridging the gap between 2D art and 3D assets seamlessly.",
@@ -185,8 +287,12 @@ data = [
         "link": "https://github.com/Arbazkhan-ai/rambows-Hands",
         "githubLink": "https://github.com/Arbazkhan-ai/rambows-Hands",
         "color": "var(--color-accent-pink)",
-        "image": "/file.svg",
-        "tags": ["Python", "Hand Tracking", "Computer Vision"],
+        "image": "/rambows-hands.png",
+        "tags": [
+            "Python",
+            "Hand Tracking",
+            "Computer Vision"
+        ],
         "details": {
             "problem": "Traditional human-computer interaction relies heavily on keyboards and mice. In AR/VR, robotics, and accessibility, there is a massive need for intuitive, touchless gesture control systems that understand intricate hand movements.",
             "whyIUsedThis": "I built this using Python because of its unparalleled speed in prototyping computer vision pipelines. By integrating lightweight pose estimation models, I achieved high-FPS hand tracking on standard CPUs. This architecture ensures the project is highly accessible without needing expensive graphic cards.",
@@ -207,8 +313,12 @@ data = [
         "link": "https://github.com/Arbazkhan-ai/cineverse",
         "githubLink": "https://github.com/Arbazkhan-ai/cineverse",
         "color": "var(--color-accent-cyan)",
-        "image": "/file.svg",
-        "tags": ["HTML", "Web Dev", "UI/UX"],
+        "image": "/cineverse.png",
+        "tags": [
+            "HTML",
+            "Web Dev",
+            "UI/UX"
+        ],
         "details": {
             "problem": "Movie databases and streaming platforms often suffer from cluttered, overly complex user interfaces. Users want an immersive, visually striking platform to discover and explore cinematic content.",
             "whyIUsedThis": "I focused on fundamental web technologies (HTML, CSS) combined with modern UI/UX principles to ensure maximum performance and accessibility. By avoiding heavy framework overhead for the core structure, the site delivers a blazing-fast, cinematic browsing experience with stunning micro-animations.",

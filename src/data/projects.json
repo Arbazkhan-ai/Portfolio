@@ -1,5 +1,65 @@
 [
     {
+        "id": 11,
+        "title": "LeadsFlow AI",
+        "category": "Agentic AI / Full-Stack",
+        "description": "Autonomous B2B lead generation and deal-closing platform. Features intelligent niche/location lead discovery, automated website scraping, AI cold email personalization, objection-handling negotiation loop, and an interactive Kanban CRM pipeline.",
+        "link": "https://github.com/Arbazkhan-ai/Lead-Finder",
+        "githubLink": "https://github.com/Arbazkhan-ai/Lead-Finder",
+        "color": "var(--color-accent-green)",
+        "image": "/leadsflow-ai.png",
+        "tags": [
+            "Agentic AI",
+            "Next.js/React",
+            "Node.js",
+            "Web Scraping",
+            "Autonomous CRM",
+            "B2B SaaS"
+        ],
+        "details": {
+            "problem": "B2B lead generation and sales outreach is manually exhausting and prone to drop-off. Sales reps spend dozens of hours searching directories, manually extracting contact info from websites, writing repetitive cold emails, and losing track of client replies across disparate tools.",
+            "whyIUsedThis": "I built LeadsFlow AI with a high-performance full-stack architecture pairing React/Vite on the client with a modular Node.js/Express backend. I engineered an autonomous AI reasoning loop that classifies inbound lead responses into specific intents (pricing inquiry, budget objection, trust barrier, booking request) and autonomously drafts context-aware counter-responses. The system features deep website crawling to extract verified emails and phone numbers, integrated with an interactive Kanban pipeline board for real-time deal stage tracking.",
+            "features": [
+                "Autonomous lead discovery engine querying real businesses by niche and geolocation",
+                "Deep website crawler parsing homepages, team, and contact routes for verified emails & phones",
+                "AI cold email generator creating hyper-personalized outreach based on prospect meta-data",
+                "Self-directed objection handling loop with automated counter-arguments and deal closing logic",
+                "Visual Kanban CRM pipeline tracking deal stages from New Lead to Closed Won",
+                "Interactive Sandbox Simulator to test and preview AI negotiation responses in real-time"
+            ]
+        }
+    },
+    {
+        "id": 12,
+        "title": "Practical Agentic AI Systems",
+        "category": "Multi-Agent AI / LangGraph",
+        "description": "Production-grade collection of Agentic AI workflows and multi-agent architectures. Features LangGraph multi-query market intelligence research agents, an autonomous plan-code-test-review coding loop in an isolated sandbox, grounded executive research synthesizers, and multi-modal PDF RAG pipelines.",
+        "link": "https://github.com/Arbazkhan-ai/Practical-Agentic-AI-projects-using-LangChain-LangGraph-RAG-LLMs-and-AI-Agents.",
+        "githubLink": "https://github.com/Arbazkhan-ai/Practical-Agentic-AI-projects-using-LangChain-LangGraph-RAG-LLMs-and-AI-Agents.",
+        "color": "var(--color-accent-violet)",
+        "image": "/agentic-ai.png",
+        "tags": [
+            "LangGraph",
+            "LangChain",
+            "Multi-Agent",
+            "RAG",
+            "Python",
+            "Local LLMs",
+            "Gemini"
+        ],
+        "details": {
+            "problem": "Single-prompt LLMs struggle with complex multi-step reasoning, real-world fact verification, hallucinations, and autonomous software engineering tasks. Modern enterprise AI requires deterministic state machines, specialized collaborating agents, and self-healing execution loops.",
+            "whyIUsedThis": "I designed this suite using LangGraph and LangChain for cyclical graph execution, human-in-the-loop controls, and robust state persistence. By orchestrating specialized agent nodes (Architect Planner, Coder, Test Sandbox Executor, and Reviewer), the systems execute autonomous feedback loops where failed unit tests trigger code iterations until solutions pass. I leveraged Google Gemini and local Ollama models (Gemma 3) alongside ChromaDB vector storage for grounded, privacy-preserving multi-modal retrieval.",
+            "features": [
+                "Market Intelligence Agent with 6-tier source quality hierarchy & automated 21-section PDF generation",
+                "Autonomous Coding Agent with Plan-Code-Test-Review loop running in isolated execution sandboxes",
+                "Grounded AI Research Agent with automated query decomposition and web citation synthesis",
+                "Hands-free continuous conversational voice buddy ('TalkWithLeo') with animated avatar & fluency metrics",
+                "End-to-end PDF RAG pipeline with semantic chunking, ChromaDB vector indexing, and grounded Q&A"
+            ]
+        }
+    },
+    {
         "id": 1,
         "title": "Helmet Detection AI",
         "category": "Computer Vision",
